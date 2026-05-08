@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Chaddaji Handlooms & Home Decors - Our Heritage, Vision, and Commitment to Quality.">
+    <title>Our Story | Chaddaji Handlooms & Home Decors</title>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <style>
+        .about-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.6)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+        }
+
+        .about-hero h1 {
+            font-family: var(--font-heading-secondary);
+        }
+
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .story-text h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .vision-mission {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .vm-card {
+            padding: 3rem;
+            border: 1px solid rgba(200, 169, 107, 0.3);
+            transition: var(--transition-fast);
+        }
+
+        .vm-card:hover {
+            border-color: var(--color-accent);
+            background-color: rgba(200, 169, 107, 0.05);
+        }
+
+        .vm-card i {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .vm-card h3 {
+            font-family: var(--font-heading-secondary);
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+        }
+
+        .vm-card p {
+            color: var(--color-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .story-section, .vision-mission {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="images/icons/logo.png" alt="Chaddaji Logo" class="nav-logo">
+            CHADDAJI<span>.</span>
+        </a>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="about.html" class="active">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        
+        <div class="nav-icons">
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="login.html"><i class="far fa-user"></i></a>
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero -->
+    <header class="about-hero">
+        <div class="hero-content">
+            <h1 data-aos="fade-up">Our Heritage</h1>
+            <p data-aos="fade-up" data-aos-delay="200">A journey of craftsmanship and elegance since decades.</p>
+        </div>
+    </header>
+
+    <!-- Brand Story -->
+    <section class="story">
+        <div class="story-section">
+            <div class="story-text" data-aos="fade-right">
+                <h2>Crafting a Legacy</h2>
+                <p>Chaddaji Handlooms & Home Decors began with a simple vision: to bring the richness of traditional Indian handlooms into modern luxury homes. Our journey started in a small workshop where every thread was a testament to quality and artistry.</p>
+                <p>Today, we have grown into a premium brand recognized for our commitment to excellence, heritage, and the seamless blend of traditional techniques with contemporary designs.</p>
+                <p>We pride ourselves on sourcing the finest materials and working with master craftsmen who have dedicated their lives to the art of weaving and design.</p>
+            </div>
+            <div class="story-img" data-aos="fade-left">
+                <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Craftsmanship" style="border-radius: var(--border-radius-md); box-shadow: var(--shadow-lg);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="vision-mission">
+        <div class="vm-card" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fas fa-eye"></i>
+            <h3>Our Vision</h3>
+            <p>To be the global benchmark for luxury handlooms, where tradition meets innovation, and every home is a masterpiece of elegant design.</p>
+        </div>
+        <div class="vm-card" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fas fa-bullseye"></i>
+            <h3>Our Mission</h3>
+            <p>To provide our customers with unparalleled quality, authentic craftsmanship, and a seamless shopping experience that celebrates the beauty of home decor.</p>
+        </div>
+    </section>
+
+    <!-- Team / Workshop -->
+    <section class="workshop">
+        <h2 data-aos="fade-up">Inside Our Workshop</h2>
+        <p style="text-align: center; margin-bottom: 3rem;" data-aos="fade-up" data-aos-delay="100">Where magic happens, one thread at a time.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1621506821199-a99a7464234a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Workshop">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1590601249764-a9b89b4f6e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Workshop">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1554188248-986adbb73be4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Workshop">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>CHADDAJI<span>.</span></h3>
+                <p>Timeless Elegance for Every Home. Discover premium handlooms and modern home decor crafted for luxury living.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Collection</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Curtains</a></li>
+                    <li><a href="#">Bedsheets</a></li>
+                    <li><a href="#">Cushion Covers</a></li>
+                    <li><a href="#">Carpets & Rugs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Contact Info</h4>
+                <ul style="color: var(--color-secondary); font-family: var(--font-body-secondary); font-size: 0.9rem;">
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-map-marker-alt"
+                            style="color: var(--color-accent); margin-right: 10px;"></i> Lewitt Market, Deolali Camp,
+                        Nashik, Maharashtra 422401</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-phone-alt"
+                            style="color: var(--color-accent); margin-right: 10px;"></i> +91 94230 82650</li>
+                    <li><i class="fas fa-envelope" style="color: var(--color-accent); margin-right: 10px;"></i>
+                        hello@chaddaji.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Chaddaji Handlooms & Home Decors. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
