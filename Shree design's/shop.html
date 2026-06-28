@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Shop the exclusive collection of luxury handlooms and home decor at Shree design's. Curtains, bedsheets, cushions, and more.">
+    <title>Shop Collection | Shree design's</title>
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <style>
+        .shop-header {
+            padding: 8rem 5% 4rem;
+            background-color: var(--color-white);
+            text-align: center;
+        }
+
+        .shop-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            padding: 2rem 5% 6rem;
+        }
+
+        .filters {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .filter-group {
+            margin-bottom: 2rem;
+        }
+
+        .filter-group h4 {
+            font-family: var(--font-body-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--color-secondary);
+            padding-bottom: 0.5rem;
+        }
+
+        .filter-list li {
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            color: var(--color-gray);
+        }
+
+        .filter-list li:hover,
+        .filter-list li.active {
+            color: var(--color-accent);
+            padding-left: 5px;
+        }
+
+        .shop-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-secondary);
+        }
+
+        .sort-select {
+            padding: 0.5rem;
+            border: 1px solid var(--color-secondary);
+            font-family: var(--font-body-secondary);
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        @media (max-width: 992px) {
+            .shop-container {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                display: none;
+                /* Hide filters on mobile for now, can add a toggle later */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="images/icons/logo.jpeg" alt="Shree design's Logo" class="nav-logo">
+            Shree design's<span>.</span>
+        </a>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="shop.html" class="active">Shop</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="nav-icons">
+            <form action="shop.html" method="GET" class="search-form"><input type="text" name="q" placeholder="Search..." class="search-input"><button type="submit" class="search-btn"><i class="fas fa-search"></i></button></form>
+            
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shop Header -->
+    <header class="shop-header">
+        <h1 data-aos="fade-up">Our Collection</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Exquisite designs for a premium lifestyle.</p>
+    </header>
+
+    <!-- Shop Container -->
+    <main class="shop-container">
+        <!-- Sidebar Filters -->
+        <aside class="filters" data-aos="fade-right">
+            <div class="filter-group">
+                <h4>Categories</h4>
+                <ul class="filter-list" id="categoryFilter">
+                    <li class="active" data-filter="all">All Products</li>
+                    <li data-filter="curtains">Curtains</li>
+                    <li data-filter="bedsheets">Bedsheets</li>
+                    <li data-filter="cushions">Cushion Covers</li>
+                    <li data-filter="sofa">Sofa Covers</li>
+                    <li data-filter="rugs">Carpets & Rugs</li>
+                    <li data-filter="decor">Wall Decor</li>
+                </ul>
+            </div>
+
+            <div class="filter-group">
+                <h4>Price Range</h4>
+                <ul class="filter-list" id="priceFilter">
+                    <li data-min="0" data-max="999999">All Prices</li>
+                    <li data-min="0" data-max="2000">Under ₹2,000</li>
+                    <li data-min="2000" data-max="5000">₹2,000 - ₹5,000</li>
+                    <li data-min="5000" data-max="10000">₹5,000 - ₹10,000</li>
+                    <li data-min="10000" data-max="999999">Over ₹10,000</li>
+                </ul>
+            </div>
+
+            <div class="filter-group">
+                <h4>Color</h4>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <div
+                        style="width: 20px; height: 20px; background: #C8A96B; cursor: pointer; border: 1px solid #ddd;">
+                    </div>
+                    <div style="width: 20px; height: 20px; background: #111; cursor: pointer; border: 1px solid #ddd;">
+                    </div>
+                    <div
+                        style="width: 20px; height: 20px; background: #F8F5F0; cursor: pointer; border: 1px solid #ddd;">
+                    </div>
+                    <div
+                        style="width: 20px; height: 20px; background: #4A3525; cursor: pointer; border: 1px solid #ddd;">
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Product Listing -->
+        <div class="shop-content">
+            <div class="shop-toolbar" data-aos="fade-up">
+                <p>Showing 1–12 of 36 results</p>
+                <select class="sort-select">
+                    <option>Default Sorting</option>
+                    <option>Sort by Price: Low to High</option>
+                    <option>Sort by Price: High to Low</option>
+                    <option>Sort by Popularity</option>
+                    <option>Sort by Latest</option>
+                </select>
+            </div>
+
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100" data-category="cushions"
+                    data-price="1499">
+                    <div class="product-img-wrapper">
+                        <img src="https://m.media-amazon.com/images/I/617ElEocqnL._AC_UF894,1000_QL80_.jpg"
+                            alt="Product">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <a href="product.html" class="action-btn"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Imperial Gold Cushion</h3>
+                        <p class="product-price">₹1,499</p>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200" data-category="curtains"
+                    data-price="4299">
+                    <div class="product-img-wrapper">
+                        <img src="https://media.designcafe.com/wp-content/uploads/2020/04/23125905/creative-home-decor-ideas.jpg"
+                            alt="Product">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <a href="product.html" class="action-btn"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Midnight Velvet Drape</h3>
+                        <p class="product-price">₹4,299</p>
+                    </div>
+                </div>
+
+                <!-- Add more product placeholders... -->
+                <!-- Repeat logic for demo -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300" data-category="rugs"
+                    data-price="12999">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Product">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <a href="product.html" class="action-btn"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Royal Persian Rug</h3>
+                        <p class="product-price">₹12,999</p>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="400" data-category="bedsheets"
+                    data-price="6599">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1590601249764-a9b89b4f6e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Product">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <a href="product.html" class="action-btn"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Ivory Silk Bedding Set</h3>
+                        <p class="product-price">₹6,599</p>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100" data-category="curtains"
+                    data-price="2899">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Product">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <a href="product.html" class="action-btn"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Linen Sheer Curtains</h3>
+                        <p class="product-price">₹2,899</p>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200" data-category="cushions"
+                    data-price="1999">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Product">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <a href="product.html" class="action-btn"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Geometric Cushion Set</h3>
+                        <p class="product-price">₹1,999</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div style="margin-top: 4rem; display: flex; justify-content: center; gap: 1rem;">
+                <a href="#" class="active"
+                    style="width: 40px; height: 40px; border: 1px solid var(--color-accent); display: flex; align-items: center; justify-content: center; background: var(--color-accent); color: white;">1</a>
+                <a href="#"
+                    style="width: 40px; height: 40px; border: 1px solid var(--color-secondary); display: flex; align-items: center; justify-content: center;">2</a>
+                <a href="#"
+                    style="width: 40px; height: 40px; border: 1px solid var(--color-secondary); display: flex; align-items: center; justify-content: center;">3</a>
+                <a href="#"
+                    style="width: 40px; height: 40px; border: 1px solid var(--color-secondary); display: flex; align-items: center; justify-content: center;"><i
+                        class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Shree design's<span>.</span></h3>
+                <p>Timeless Elegance for Every Home. Discover premium handlooms and modern home decor crafted for luxury
+                    living.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Collection</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Curtains</a></li>
+                    <li><a href="#">Bedsheets</a></li>
+                    <li><a href="#">Cushion Covers</a></li>
+                    <li><a href="#">Carpets & Rugs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Contact Info</h4>
+                <ul style="color: var(--color-secondary); font-family: var(--font-body-secondary); font-size: 0.9rem;">
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-map-marker-alt"
+                            style="color: var(--color-accent); margin-right: 10px;"></i> Lewitt Market, Deolali Camp,
+                        Nashik, Maharashtra 422401</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-phone-alt"
+                            style="color: var(--color-accent); margin-right: 10px;"></i> +91 94230 82650</li>
+                    <li><i class="fas fa-envelope" style="color: var(--color-accent); margin-right: 10px;"></i>
+                        hello@Shree design's.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Shree design's. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+
+</html>
+
