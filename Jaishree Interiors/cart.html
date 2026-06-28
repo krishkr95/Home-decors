@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | Jaishree Interiors</title>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <style>
+        .cart-section {
+            padding: 10rem 5% 6rem;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 3rem;
+        }
+
+        .cart-table th {
+            text-align: left;
+            padding: 1.5rem;
+            border-bottom: 2px solid var(--color-primary);
+            font-family: var(--font-body-secondary);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .cart-table td {
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid var(--color-secondary);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: var(--border-radius-sm);
+        }
+
+        .cart-item h3 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cart-item p {
+            font-size: 0.85rem;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--color-secondary);
+            width: fit-content;
+        }
+
+        .quantity-control button {
+            padding: 0.5rem 0.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .quantity-control input {
+            width: 40px;
+            text-align: center;
+            border: none;
+            outline: none;
+        }
+
+        .remove-btn {
+            color: #ff4d4d;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .remove-btn:hover {
+            color: #cc0000;
+        }
+
+        .cart-summary {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 5rem;
+            align-items: flex-start;
+        }
+
+        .coupon-box {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .coupon-box input {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid var(--color-secondary);
+            outline: none;
+        }
+
+        .summary-card {
+            background-color: var(--color-white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-md);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-light-gray);
+        }
+
+        .summary-row.total {
+            border-bottom: none;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .cart-table, .cart-table thead, .cart-table tbody, .cart-table th, .cart-table td, .cart-table tr {
+                display: block;
+            }
+            .cart-table thead { display: none; }
+            .cart-table td {
+                text-align: right;
+                position: relative;
+                padding-left: 50%;
+                border-bottom: 1px solid var(--color-secondary);
+            }
+            .cart-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 1.5rem;
+                width: 45%;
+                text-align: left;
+                font-weight: 700;
+                font-family: var(--font-body-secondary);
+                text-transform: uppercase;
+                font-size: 0.75rem;
+            }
+            .cart-item { justify-content: flex-end; }
+            .quantity-control { margin-left: auto; }
+            .cart-summary { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="images/icons/logo.jpeg" alt="Jaishree Interiors Logo" class="nav-logo">
+            Jaishree Interiors<span>.</span>
+        </a>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        
+        <div class="nav-icons">
+            <form action="shop.html" method="GET" class="search-form"><input type="text" name="q" placeholder="Search..." class="search-input"><button type="submit" class="search-btn"><i class="fas fa-search"></i></button></form>
+            
+            <a href="cart.html" class="active"><i class="fas fa-shopping-cart"></i></a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <h1 data-aos="fade-up" style="text-align: center; margin-bottom: 4rem;">Your Shopping Cart</h1>
+        
+        <div data-aos="fade-up">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Item 1 -->
+                    <tr>
+                        <td data-label="Product">
+                            <div class="cart-item">
+                                <img src="https://images.unsplash.com/photo-1584286595398-a40f23f11bc0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Product">
+                                <div>
+                                    <h3>Imperial Gold Cushion Cover</h3>
+                                    <p>Size: 18x18 inches</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td data-label="Price">₹1,499</td>
+                        <td data-label="Quantity">
+                            <div class="quantity-control">
+                                <button>-</button>
+                                <input type="text" value="2">
+                                <button>+</button>
+                            </div>
+                        </td>
+                        <td data-label="Subtotal">₹2,998</td>
+                        <td><i class="fas fa-trash remove-btn"></i></td>
+                    </tr>
+                    <!-- Item 2 -->
+                    <tr>
+                        <td data-label="Product">
+                            <div class="cart-item">
+                                <img src="https://images.unsplash.com/photo-1598928308496-ec6196238b7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Product">
+                                <div>
+                                    <h3>Midnight Velvet Drape</h3>
+                                    <p>Size: 7ft x 4ft</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td data-label="Price">₹4,299</td>
+                        <td data-label="Quantity">
+                            <div class="quantity-control">
+                                <button>-</button>
+                                <input type="text" value="1">
+                                <button>+</button>
+                            </div>
+                        </td>
+                        <td data-label="Subtotal">₹4,299</td>
+                        <td><i class="fas fa-trash remove-btn"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="cart-summary">
+                <div class="coupon-section">
+                    <h3 style="margin-bottom: 1.5rem;">Have a Coupon?</h3>
+                    <div class="coupon-box">
+                        <input type="text" placeholder="Enter coupon code">
+                        <button class="btn btn-outline" style="padding: 1rem 2rem;">Apply</button>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <h3 style="margin-bottom: 2rem; border-bottom: 2px solid var(--color-primary); padding-bottom: 0.5rem;">Cart Totals</h3>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>₹7,297</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span>FREE</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span style="color: var(--color-accent);">₹7,297</span>
+                    </div>
+                    <a href="#" id="proceed-whatsapp-btn" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 2rem;">Proceed to Checkout (WhatsApp)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Jaishree Interiors<span>.</span></h3>
+                <p>Timeless Elegance for Every Home. Discover premium handlooms and modern home decor crafted for luxury living.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Collection</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Curtains</a></li>
+                    <li><a href="#">Bedsheets</a></li>
+                    <li><a href="#">Cushion Covers</a></li>
+                    <li><a href="#">Carpets & Rugs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Contact Info</h4>
+                <ul style="color: var(--color-secondary); font-family: var(--font-body-secondary); font-size: 0.9rem;">
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-map-marker-alt" style="color: var(--color-accent); margin-right: 10px;"></i> 123 Luxury Avenue, Design District</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-phone-alt" style="color: var(--color-accent); margin-right: 10px;"></i> +91 98765 43210</li>
+                    <li><i class="fas fa-envelope" style="color: var(--color-accent); margin-right: 10px;"></i> jaishreeinteriors2011@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jaishree Interiors. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
+
+

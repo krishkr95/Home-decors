@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Jaishree Interiors</title>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <style>
+        .contact-container {
+            padding: 10rem 5% 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 5rem;
+        }
+
+        .contact-info-block h2 {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-item i {
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .info-item h3 {
+            font-family: var(--font-body-secondary);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-item p {
+            font-size: 1rem;
+        }
+
+        .contact-form-block {
+            background-color: var(--color-white);
+            padding: 4rem;
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: var(--font-body-secondary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--color-secondary);
+            font-family: var(--font-body-primary);
+            outline: none;
+            transition: var(--transition-fast);
+        }
+
+        .form-control:focus {
+            border-color: var(--color-accent);
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+
+        .map-section {
+            padding: 0;
+            height: 450px;
+        }
+
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding-top: 8rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .contact-form-block {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="images/icons/logo.jpeg" alt="Jaishree Interiors Logo" class="nav-logo">
+            Jaishree Interiors<span>.</span>
+        </a>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+        
+        <div class="nav-icons">
+            <form action="shop.html" method="GET" class="search-form"><input type="text" name="q" placeholder="Search..." class="search-input"><button type="submit" class="search-btn"><i class="fas fa-search"></i></button></form>
+            
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Container -->
+    <main class="contact-container">
+        <!-- Contact Info -->
+        <div class="contact-info-block" data-aos="fade-right">
+            <h2>Get In Touch</h2>
+            <p style="margin-bottom: 3rem; color: var(--color-gray);">Have a question or looking for a custom order? Our team is here to assist you with everything home decor.</p>
+            
+            <div class="info-item">
+                <i class="fas fa-location-dot"></i>
+                <div>
+                    <h3>Our Showroom</h3>
+                    <p>63, Vats Market, Shiva Market, Madhuban Chowk,<br>Pitampura Delhi - 110034</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h3>Call Us</h3>
+                    <p>+91 9873034362<br></p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h3>Email Support</h3>
+                    <p>jaishreeinteriors2011@gmail.com<br>jaishreeinteriors2011@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fab fa-whatsapp"></i>
+                <div>
+                    <h3>WhatsApp</h3>
+                    <p>+91 9873034362 (Inquiry)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-block" data-aos="fade-left">
+            <form action="#">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-control" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" class="form-control" placeholder="What's this regarding?">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea class="form-control" placeholder="Tell us how we can help..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Google Maps Section -->
+    <section class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.342938125432!2d73.8315!3d19.9325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdd942b00000001%3A0x0!2sJaishree Interiors%20handlooms%20%26%20Home%20decors!5e0!3m2!1sen!2sin!4v1683456789012!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Jaishree Interiors<span>.</span></h3>
+                <p>Timeless Elegance for Every Home. Discover premium handlooms and modern home decor crafted for luxury living.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Collection</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Curtains</a></li>
+                    <li><a href="#">Bedsheets</a></li>
+                    <li><a href="#">Cushion Covers</a></li>
+                    <li><a href="#">Carpets & Rugs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Contact Info</h4>
+                <ul style="color: var(--color-secondary); font-family: var(--font-body-secondary); font-size: 0.9rem;">
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-map-marker-alt"
+                            style="color: var(--color-accent); margin-right: 10px;"></i> 63, Vats Market, Shiva Market, Madhuban Chowk,
+                        Pitampura Delhi - 110034</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-phone-alt"
+                            style="color: var(--color-accent); margin-right: 10px;"></i> +91 9873034362</li>
+                    <li><i class="fas fa-envelope" style="color: var(--color-accent); margin-right: 10px;"></i>
+                        jaishreeinteriors2011@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jaishree Interiors. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
+
+
