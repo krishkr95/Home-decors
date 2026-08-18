@@ -1,0 +1,291 @@
+/*
+=========================================
+  SV DESIGN STUDIO — RESPONSIVE STYLES
+=========================================
+*/
+
+/* --- Large Tablet / Laptop Breaks (1024px) --- */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
+  
+  .section {
+    padding: 80px 0;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Mobile Menu & Medium Breaks (768px) --- */
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 70px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  /* Hamburger Menu Toggle Display */
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - var(--nav-height));
+    background-color: var(--primary-bg);
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    z-index: 99;
+    border-top: var(--border-light);
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Hero adjustments */
+  .hero-content {
+    margin-left: 5%;
+    max-width: 90%;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  /* Grids */
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .category-card {
+    height: 380px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .product-media {
+    height: 280px;
+  }
+
+  .product-name {
+    font-size: 1.2rem;
+  }
+
+  .why-choose-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .why-card {
+    padding: 30px;
+  }
+
+  .insta-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Modal responsiveness */
+  .modal-overlay {
+    padding: 15px;
+  }
+
+  .quickview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quickview-media {
+    height: 250px;
+  }
+
+  .quickview-details {
+    padding: 30px;
+    max-height: 350px;
+  }
+
+  .quickview-title {
+    font-size: 1.6rem;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  /* Dynamic product page styling */
+  .product-detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}
+
+/* --- Mobile Bottom Sticky CTA & Small Breaks (576px) --- */
+@media (max-width: 576px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .hero-btns .btn {
+    width: 100%;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-media {
+    height: 340px;
+  }
+
+  .insta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    box-shadow: none;
+    gap: 12px;
+  }
+
+  .newsletter-form input {
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--box-shadow-luxury);
+  }
+
+  .newsletter-form button {
+    padding: 16px;
+    border-radius: var(--border-radius-sm);
+  }
+
+  /* Mobile bottom sticky CTA */
+  .mobile-sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-bg);
+    border-top: var(--border-style);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px 10px;
+    z-index: 98;
+    box-shadow: 0 -10px 25px rgba(26,26,26,0.08);
+  }
+
+  .mobile-cta-item {
+    font-family: var(--font-sans-poppins);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+  }
+
+  .mobile-cta-item i {
+    font-size: 1.15rem;
+    color: var(--brand-brown);
+  }
+
+  .mobile-cta-inquiry {
+    background-color: var(--brand-brown);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  .mobile-cta-inquiry i {
+    color: white;
+  }
+
+  body {
+    padding-bottom: 70px; /* offset for the sticky bottom bar */
+  }
+
+  .whatsapp-floating-widget {
+    bottom: 85px; /* offset so it doesn't cover the bar */
+    right: 20px;
+  }
+
+  .toast-container {
+    bottom: 155px; /* offset toast position */
+    right: 20px;
+  }
+}
+
+/* --- Non-mobile CSS default state for sticky bar --- */
+@media (min-width: 577px) {
+  .mobile-sticky-cta {
+    display: none;
+  }
+}

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | SV Design Studio</title>
+  <meta name="description" content="View handcrafted home decor and accessories dimensions, materials, care instructions, and request custom styling or order inquiries directly on WhatsApp.">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <style>
+    .product-detail-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 60px;
+      margin-top: 20px;
+    }
+
+    /* Left Gallery Column */
+    .gallery-column {
+      display: flex;
+      gap: 20px;
+    }
+
+    .product-thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 80px;
+      flex-shrink: 0;
+    }
+
+    .thumb-item {
+      height: 80px;
+      border: var(--border-light);
+      border-radius: var(--border-radius-sm);
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      background-color: var(--secondary-bg);
+    }
+
+    .thumb-item.active, .thumb-item:hover {
+      border-color: var(--brand-brown);
+      transform: scale(1.02);
+    }
+
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .product-zoom-container {
+      flex-grow: 1;
+      height: 520px;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      position: relative;
+      cursor: zoom-in;
+      background-color: var(--secondary-bg);
+      box-shadow: var(--box-shadow-luxury);
+    }
+
+    .product-zoom-container img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.1s ease-out;
+    }
+
+    /* Right Details Column */
+    .details-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .p-meta-category {
+      font-family: var(--font-sans-poppins);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--brand-brown);
+      margin-bottom: 12px;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    .p-title {
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      color: var(--charcoal);
+    }
+
+    .p-price-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: var(--border-light);
+    }
+
+    .p-price {
+      font-family: var(--font-sans-poppins);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .p-desc {
+      font-size: 1.05rem;
+      color: rgba(26,26,26,0.7);
+      margin-bottom: 30px;
+    }
+
+    .p-options-group {
+      margin-bottom: 35px;
+    }
+
+    .p-options-title {
+      font-family: var(--font-sans-poppins);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(26,26,26,0.5);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .color-swatches {
+      display: flex;
+      gap: 10px;
+    }
+
+    .color-swatch {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid rgba(26,26,26,0.15);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .color-swatch.active::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border: 1px solid var(--brand-brown);
+      border-radius: 50%;
+    }
+
+    .p-actions-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .product-detail-wishlist {
+      width: 52px;
+      height: 52px;
+      background-color: white;
+      border: var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.15rem;
+      color: var(--charcoal);
+      transition: var(--transition-smooth);
+    }
+
+    .product-detail-wishlist:hover,
+    .product-detail-wishlist.active {
+      background-color: var(--accent-coral);
+      color: white;
+      border-color: var(--accent-coral);
+    }
+
+    /* Specifications Details Tabs */
+    .specs-tabs {
+      border-top: var(--border-light);
+      padding-top: 35px;
+    }
+
+    .tabs-nav {
+      display: flex;
+      gap: 30px;
+      border-bottom: var(--border-light);
+      margin-bottom: 24px;
+    }
+
+    .tab-nav-btn {
+      font-family: var(--font-sans-poppins);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(26,26,26,0.5);
+      padding-bottom: 12px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: var(--transition-smooth);
+    }
+
+    .tab-nav-btn.active, .tab-nav-btn:hover {
+      color: var(--charcoal);
+      border-bottom-color: var(--brand-brown);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+      animation: tabFadeIn 0.5s ease;
+    }
+
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .specs-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px dotted rgba(26,26,26,0.1);
+      font-size: 0.9rem;
+    }
+
+    .specs-list li strong {
+      font-family: var(--font-sans-poppins);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: rgba(26,26,26,0.6);
+      font-weight: 500;
+    }
+
+    /* Custom Request Panel */
+    .custom-request-box {
+      margin-top: 40px;
+      background-color: white;
+      padding: 30px;
+      border-radius: var(--border-radius-md);
+      box-shadow: var(--box-shadow-luxury);
+      border: var(--border-light);
+    }
+
+    .custom-request-box h4 {
+      font-family: var(--font-serif-cormorant);
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: var(--charcoal);
+    }
+
+    .custom-request-box p {
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    .custom-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .custom-form-grid input, .custom-form-grid textarea {
+      width: 100%;
+      border: var(--border-light);
+      background-color: var(--primary-bg);
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      border-radius: var(--border-radius-sm);
+    }
+
+    .custom-form-grid input:focus, .custom-form-grid textarea:focus {
+      border-color: var(--brand-brown);
+      background-color: white;
+    }
+
+    .custom-form-grid textarea {
+      grid-column: 1/-1;
+      height: 80px;
+      resize: none;
+    }
+
+    .custom-form-grid button {
+      grid-column: 1/-1;
+      background-color: var(--brand-brown);
+      color: white;
+      padding: 12px;
+      cursor: pointer;
+      font-family: var(--font-sans-poppins);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: var(--transition-smooth);
+    }
+
+    .custom-form-grid button:hover {
+      background-color: var(--charcoal);
+    }
+
+    @media (max-width: 991px) {
+      .gallery-column {
+        flex-direction: column-reverse;
+      }
+      .product-thumbnails {
+        flex-direction: row;
+        width: 100%;
+      }
+      .product-zoom-container {
+        height: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- --- Sticky Navbar --- -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        SV DESIGN
+        <span>Studio</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Brand</a>
+        <a href="shop.html" class="active">Shop / Collection</a>
+        <a href="gallery.html">Gallery / Lookbook</a>
+        <a href="custom.html">Custom Orders</a>
+        <a href="collaborate.html">Collaboration</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a href="shop.html" class="nav-icon" title="Search"><i class="fas fa-search"></i></a>
+        <a href="shop.html" class="nav-icon" title="Wishlist">
+          <i class="far fa-heart"></i>
+          <span class="nav-icon-badge wishlist-badge-count">0</span>
+        </a>
+        <div class="menu-toggle" id="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- --- Breadcrumb Header --- -->
+  <section class="section section-bg-beige" style="padding-top: 120px; padding-bottom: 25px; border-bottom: var(--border-light);">
+    <div class="container">
+      <p style="font-family: var(--font-sans-poppins); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(26,26,26,0.5);">
+        <a href="index.html" style="color: inherit;">Home</a> &nbsp;/&nbsp; 
+        <a href="shop.html" style="color: inherit;">Catalog</a> &nbsp;/&nbsp; 
+        <span class="product-breadcrumb-active" style="color: var(--brand-brown); font-weight: 500;">Product Detail</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- --- Product Detail Body --- -->
+  <section class="section" style="padding-top: 50px;">
+    <div class="container">
+      <div class="product-detail-grid">
+        
+        <!-- Left Image Column -->
+        <div class="gallery-column" data-aos="fade-right">
+          <!-- Thumbnails Selector -->
+          <div class="product-thumbnails">
+            <!-- Renders via JS products database -->
+          </div>
+
+          <!-- Main Zoomable Box -->
+          <div class="product-zoom-container">
+            <img src="" alt="Main Product Image" id="p-main-img">
+          </div>
+        </div>
+
+        <!-- Right Product Meta Details -->
+        <div class="details-column" data-aos="fade-left">
+          <span class="p-meta-category" id="p-cat">Category</span>
+          <h1 class="p-title" id="p-title">Product Name</h1>
+          
+          <div class="p-price-row">
+            <span class="p-price" id="p-price">$0.00</span>
+          </div>
+
+          <p class="p-desc" id="p-desc">Loading detailed product descriptions...</p>
+
+          <!-- Customizable Swatches -->
+          <div class="p-options-group">
+            <span class="p-options-title">Accent Tones Sourced</span>
+            <div class="color-swatches">
+              <div class="color-swatch active" style="background-color: var(--secondary-bg);" title="Natural Ivory"></div>
+              <div class="color-swatch" style="background-color: var(--brand-brown);" title="Terracotta Brown"></div>
+              <div class="color-swatch" style="background-color: var(--accent-mustard);" title="Mustard Gold"></div>
+              <div class="color-swatch" style="background-color: var(--accent-emerald);" title="Emerald Forest"></div>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="p-actions-row">
+            <button class="btn btn-primary" id="detail-wa-btn" style="flex-grow: 1;">
+              <i class="fab fa-whatsapp" style="margin-right: 8px; font-size: 1rem;"></i> WhatsApp Inquiry
+            </button>
+            <button class="product-detail-wishlist wishlist-btn" title="Add to Wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+
+          <!-- Specifications Sheet Tabs -->
+          <div class="specs-tabs">
+            <div class="tabs-nav">
+              <span class="tab-nav-btn active" onclick="toggleDetailsTab(this, 'specs-panel')">Specifications</span>
+              <span class="tab-nav-btn" onclick="toggleDetailsTab(this, 'care-panel')">Care Instructions</span>
+            </div>
+            
+            <div class="tab-panel active" id="specs-panel">
+              <ul class="specs-list">
+                <li>
+                  <strong>Dimensions</strong>
+                  <span id="p-dims">-</span>
+                </li>
+                <li>
+                  <strong>Materials Used</strong>
+                  <span id="p-mats">-</span>
+                </li>
+                <li>
+                  <strong>Lead Time</strong>
+                  <span>7 to 10 Business Days</span>
+                </li>
+                <li>
+                  <strong>Origin</strong>
+                  <span>Handcrafted in India</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="tab-panel" id="care-panel">
+              <p id="p-care" style="font-size: 0.9rem; line-height: 1.6;">Care tips loading...</p>
+            </div>
+          </div>
+
+          <!-- Quick Request Customization Form -->
+          <div class="custom-request-box">
+            <h4>Bespoke Adjustments</h4>
+            <p>Need alternate dimensions or custom colors? Send us a quick request below.</p>
+            
+            <form class="custom-form-grid" id="product-inquiry-form">
+              <input type="text" placeholder="Name" required aria-label="Your Name">
+              <input type="email" placeholder="Email" required aria-label="Your Email Address">
+              <textarea placeholder="Specify dimensions, tassel colors, or custom modifications required..." required aria-label="Custom adjustment details"></textarea>
+              <button type="submit">Submit Request</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Related Products Grid --- -->
+  <section class="section section-bg-beige">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Curated Complement</span>
+        <h2 class="section-title">Similar Handcrafts</h2>
+        <p class="section-desc">Artistic products matching this collection that you might love layering.</p>
+      </div>
+
+      <div class="products-grid related-products-grid" data-aos="fade-up">
+        <!-- Dynamic loading of related files via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Standard Footer --- -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col footer-about">
+        <a href="index.html" class="footer-logo">
+          SV DESIGN
+          <span>Studio</span>
+        </a>
+        <p>We blend traditional heritage craft with modern minimal layouts, bringing luxury home decor and handcrafted bags to contemporary design lovers.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col footer-links">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Brand</a></li>
+          <li><a href="shop.html">Shop / Catalog</a></li>
+          <li><a href="gallery.html">Lookbook Look</a></li>
+          <li><a href="custom.html">Custom Orders</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-links">
+        <h5>Legal Info</h5>
+        <ul>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="collaborate.html">Wholesale Application</a></li>
+          <li><a href="contact.html">Inquiries Help</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h5>Our Studio</h5>
+        <ul>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Plot 42, Sector 12, Industrial Craft Block, Gurugram, India</span>
+          </li>
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 99999 99999</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <span>hello@svdesignstudio.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 SV Design Studio. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Credits</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- --- Mobile Sticky Bottom Navigation Panel --- -->
+  <div class="mobile-sticky-cta">
+    <a href="index.html" class="mobile-cta-item" aria-label="Home Navigation">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="shop.html" class="mobile-cta-item" aria-label="Shop Navigation">
+      <i class="fas fa-store"></i>
+      <span>Shop</span>
+    </a>
+    <a href="custom.html" class="mobile-cta-item" aria-label="Custom Design Orders">
+      <i class="fas fa-palette"></i>
+      <span>Custom</span>
+    </a>
+    <a href="contact.html" class="mobile-cta-item mobile-cta-inquiry" aria-label="Quick WhatsApp Inquiry">
+      <i class="fab fa-whatsapp"></i>
+      <span>Inquire</span>
+    </a>
+  </div>
+
+  <!-- --- Floating WhatsApp Widget --- -->
+  <div class="whatsapp-floating-widget">
+    <div class="wa-tooltip">Inquire on WhatsApp</div>
+    <div class="wa-btn"><i class="fab fa-whatsapp"></i></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+
+  <script>
+    // Tab toggler details page specifically
+    window.toggleDetailsTab = function(element, panelId) {
+      // Toggle nav buttons
+      const btns = document.querySelectorAll('.tab-nav-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+      element.classList.add('active');
+
+      // Toggle panels
+      const panels = document.querySelectorAll('.tab-panel');
+      panels.forEach(panel => panel.classList.remove('active'));
+      document.getElementById(panelId).classList.add('active');
+    };
+
+    // Color Swatch option selector click
+    const swatches = document.querySelectorAll('.color-swatch');
+    swatches.forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        swatches.forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+        showToast(`Selected accent: ${swatch.title}`);
+      });
+    });
+  </script>
+</body>
+</html>

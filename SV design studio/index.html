@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SV Design Studio | Premium Handcrafted Home Decor & Boutique Brand</title>
+  <meta name="description" content="Explore SV Design Studio's collection of luxury handcrafted home decor, boho pillows, macrame bags, and bespoke accessories. Elevating modern spaces with art and culture.">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="home-page">
+
+  <!-- --- Sticky Navbar --- -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        SV DESIGN
+        <span>Studio</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About Brand</a>
+        <a href="shop.html">Shop / Collection</a>
+        <a href="gallery.html">Gallery / Lookbook</a>
+        <a href="custom.html">Custom Orders</a>
+        <a href="collaborate.html">Collaboration</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a href="shop.html" class="nav-icon" title="Search"><i class="fas fa-search"></i></a>
+        <a href="shop.html" class="nav-icon" title="Wishlist">
+          <i class="far fa-heart"></i>
+          <span class="nav-icon-badge wishlist-badge-count">0</span>
+        </a>
+        <div class="menu-toggle" id="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- --- Hero Slider Section --- -->
+  <section class="hero-slider-container">
+    <!-- Slide 1 -->
+    <div class="hero-slide active">
+      <div class="hero-bg" style="background-image: url('assets/images/hero_1.png');"></div>
+      <div class="hero-content">
+        <span class="hero-subtitle">Artisanal Handcrafts</span>
+        <h1 class="hero-title">Bring Art, Culture & <span>Luxury</span> Into Homes</h1>
+        <p class="hero-desc">Indulge in a curated collection of hand-woven accessories, luxury textiles, and statement ceramics forged by master craftsmen.</p>
+        <div class="hero-btns">
+          <a href="shop.html" class="btn btn-primary">Explore Collection</a>
+          <a href="custom.html" class="btn btn-secondary">Custom Orders</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+      <div class="hero-bg" style="background-image: url('assets/images/hero_2.png');"></div>
+      <div class="hero-content">
+        <span class="hero-subtitle">Boutique Collection</span>
+        <h1 class="hero-title">Eclectic <span>Bags</span> For The Modern Wanderer</h1>
+        <p class="hero-desc">Carefully woven macrame clutches and embroidered totes designed to serve as functional sculptures for daily styling.</p>
+        <div class="hero-btns">
+          <a href="shop.html?cat=bags" class="btn btn-primary">Shop Bags</a>
+          <a href="gallery.html" class="btn btn-secondary">View Lookbook</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+      <div class="hero-bg" style="background-image: url('assets/images/hero_3.png');"></div>
+      <div class="hero-content">
+        <span class="hero-subtitle">Boho Luxury Living</span>
+        <h1 class="hero-title">Textured <span>Textiles</span> & Earthy Accents</h1>
+        <p class="hero-desc">Layer spaces with detailed tufting, thick woolen throws, and organic earthenware that create a warm, comforting sanctuary.</p>
+        <div class="hero-btns">
+          <a href="shop.html?cat=cushions" class="btn btn-primary">Explore Cushions</a>
+          <a href="custom.html" class="btn btn-secondary">Inquire Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider Arrows -->
+    <div class="slider-arrows">
+      <div class="slider-arrow" id="hero-prev"><i class="fas fa-chevron-left"></i></div>
+      <div class="slider-arrow" id="hero-next"><i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <!-- Slider Dots -->
+    <div class="slider-dots">
+      <div class="slider-dot active"></div>
+      <div class="slider-dot"></div>
+      <div class="slider-dot"></div>
+    </div>
+  </section>
+
+  <!-- --- Brand Introduction Section --- -->
+  <section class="section" data-aos="fade-up">
+    <div class="container">
+      <div class="brand-intro-wrapper">
+        <span class="section-subtitle">The SV Ethos</span>
+        <p class="brand-intro-text">
+          “Handcrafted eclectic decor pieces designed to bring <span>art</span>, <span>culture</span> and <span>luxury</span> into modern homes.”
+        </p>
+        <p style="max-width: 650px; margin: 0 auto 30px; font-size: 1.05rem;">
+          At SV Design Studio, we bridge the gap between traditional heritage skills and clean contemporary designs. Each product is a slow-crafted story of clay, thread, brass, and wood, built to elevate your daily living experiences.
+        </p>
+        <span class="brand-signature">— Founder & Director, SV Design Studio</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Featured Categories Section --- -->
+  <section class="section section-bg-beige">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Handcrafted Selections</span>
+        <h2 class="section-title">Shop by Category</h2>
+        <p class="section-desc">Delve into our curated lines of slow-fashion accessories and artisanal accents.</p>
+      </div>
+
+      <div class="categories-grid">
+        <!-- Cat 1 -->
+        <div class="category-card" onclick="window.location.href='shop.html?cat=bags'" data-aos="fade-up">
+          <img src="assets/images/bag_cat.png" alt="Handmade Bags" class="category-img">
+          <div class="category-overlay">
+            <span class="category-count">Collection 2026</span>
+            <h3 class="category-title">Handmade Bags</h3>
+            <span class="category-btn">Explore Bags <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Cat 2 -->
+        <div class="category-card" onclick="window.location.href='shop.html?cat=cushions'" data-aos="fade-up" data-aos-delay="100">
+          <img src="assets/images/cushion_cat.png" alt="Cushions" class="category-img">
+          <div class="category-overlay">
+            <span class="category-count">Tufted & Embroidered</span>
+            <h3 class="category-title">Artisanal Cushions</h3>
+            <span class="category-btn">Explore Cushions <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Cat 3 -->
+        <div class="category-card" onclick="window.location.href='shop.html?cat=decor'" data-aos="fade-up" data-aos-delay="200">
+          <img src="assets/images/decor_cat.png" alt="Home Decor" class="category-img">
+          <div class="category-overlay">
+            <span class="category-count">Organic Ceramics</span>
+            <h3 class="category-title">Home Decor</h3>
+            <span class="category-btn">Explore Decor <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Cat 4 -->
+        <div class="category-card" onclick="window.location.href='shop.html?cat=accessories'" data-aos="fade-up">
+          <img src="assets/images/accessory_cat.png" alt="Accessories" class="category-img">
+          <div class="category-overlay">
+            <span class="category-count">Earthy Details</span>
+            <h3 class="category-title">Decorative Accessories</h3>
+            <span class="category-btn">Explore Accessories <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Cat 5 -->
+        <div class="category-card" onclick="window.location.href='shop.html?cat=boho'" data-aos="fade-up" data-aos-delay="100">
+          <img src="assets/images/boho_cat.png" alt="Boho Collection" class="category-img">
+          <div class="category-overlay">
+            <span class="category-count">Relaxed Luxe</span>
+            <h3 class="category-title">Boho Collection</h3>
+            <span class="category-btn">Explore Boho <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Cat 6 -->
+        <div class="category-card" onclick="window.location.href='shop.html?cat=textiles'" data-aos="fade-up" data-aos-delay="200">
+          <img src="assets/images/textile_cat.png" alt="Textiles" class="category-img">
+          <div class="category-overlay">
+            <span class="category-count">Loomed Luxury</span>
+            <h3 class="category-title">Luxury Textiles</h3>
+            <span class="category-btn">Explore Textiles <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Best Seller Products Section --- -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Highly Coveted</span>
+        <h2 class="section-title">The Bestseller List</h2>
+        <p class="section-desc">Artistic creations most loved by our boutique community and homeowners.</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card" data-aos="fade-up">
+          <div class="product-media">
+            <img src="assets/images/bag_1.png" alt="Embossed Macrame Tote">
+            <div class="product-badges">
+              <span class="badge badge-new">New</span>
+              <span class="badge badge-bestseller">Bestseller</span>
+            </div>
+            <div class="product-wishlist">
+              <button class="wishlist-btn" data-id="bag_1"><i class="far fa-heart"></i></button>
+            </div>
+            <div class="product-actions">
+              <button class="quick-view-btn" data-id="bag_1">Quick View</button>
+              <button class="inquiry-btn-sm" onclick="triggerWhatsAppInquiry('bag_1', 'Embossed Macrame Tote')">Inquire</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">bags</span>
+            <h4 class="product-name"><a href="product.html?id=bag_1">Embossed Macrame Tote</a></h4>
+            <div class="product-price-row">
+              <span class="product-price">$120</span>
+              <span class="product-price-inquiry">/ ₹9,500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="product-media">
+            <img src="assets/images/cushion_1.png" alt="Tufted Bohemian Cushion Cover">
+            <div class="product-badges">
+              <span class="badge badge-bestseller">Bestseller</span>
+            </div>
+            <div class="product-wishlist">
+              <button class="wishlist-btn" data-id="cushion_1"><i class="far fa-heart"></i></button>
+            </div>
+            <div class="product-actions">
+              <button class="quick-view-btn" data-id="cushion_1">Quick View</button>
+              <button class="inquiry-btn-sm" onclick="triggerWhatsAppInquiry('cushion_1', 'Tufted Bohemian Cushion Cover')">Inquire</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">cushions</span>
+            <h4 class="product-name"><a href="product.html?id=cushion_1">Tufted Bohemian Cushion Cover</a></h4>
+            <div class="product-price-row">
+              <span class="product-price">$45</span>
+              <span class="product-price-inquiry">/ ₹3,500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="product-media">
+            <img src="assets/images/decor_1.png" alt="Terracotta Sculptural Table Lamp">
+            <div class="product-badges">
+              <span class="badge badge-new">New</span>
+              <span class="badge badge-bestseller">Bestseller</span>
+            </div>
+            <div class="product-wishlist">
+              <button class="wishlist-btn" data-id="decor_1"><i class="far fa-heart"></i></button>
+            </div>
+            <div class="product-actions">
+              <button class="quick-view-btn" data-id="decor_1">Quick View</button>
+              <button class="inquiry-btn-sm" onclick="triggerWhatsAppInquiry('decor_1', 'Terracotta Sculptural Table Lamp')">Inquire</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">decor</span>
+            <h4 class="product-name"><a href="product.html?id=decor_1">Terracotta Sculptural Table Lamp</a></h4>
+            <div class="product-price-row">
+              <span class="product-price">$190</span>
+              <span class="product-price-inquiry">/ ₹15,000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="product-media">
+            <img src="assets/images/accessory_cat.png" alt="Boho Wall Hanging Brass Mirror">
+            <div class="product-badges">
+              <span class="badge badge-bestseller">Bestseller</span>
+            </div>
+            <div class="product-wishlist">
+              <button class="wishlist-btn" data-id="accessory_1"><i class="far fa-heart"></i></button>
+            </div>
+            <div class="product-actions">
+              <button class="quick-view-btn" data-id="accessory_1">Quick View</button>
+              <button class="inquiry-btn-sm" onclick="triggerWhatsAppInquiry('accessory_1', 'Boho Wall Hanging Brass Mirror')">Inquire</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">accessories</span>
+            <h4 class="product-name"><a href="product.html?id=accessory_1">Boho Wall Hanging Brass Mirror</a></h4>
+            <div class="product-price-row">
+              <span class="product-price">$95</span>
+              <span class="product-price-inquiry">/ ₹7,500</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 50px;" data-aos="fade-up">
+        <a href="shop.html" class="btn btn-secondary">Explore All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Why Choose Us Section --- -->
+  <section class="section section-bg-beige">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Values & Ethics</span>
+        <h2 class="section-title">The Handcrafted Promise</h2>
+        <p class="section-desc">Why design lovers and interior stylists repeatedly trust our studio.</p>
+      </div>
+
+      <div class="why-choose-grid">
+        <!-- Card 1 -->
+        <div class="why-card" data-aos="fade-up">
+          <div class="why-icon"><i class="fas fa-heart"></i></div>
+          <h3 class="why-title">Handmade with Love</h3>
+          <p class="why-desc">No factory machines or heavy assembly lines. Every stitch is hand-guided, and every curve hand-sculpted in slow cycles.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="why-icon"><i class="fas fa-gem"></i></div>
+          <h3 class="why-title">Premium Raw Materials</h3>
+          <p class="why-desc">We select top-grade Himalayan wool, natural clay mixtures, cast brass fittings, and vegetable dyes for unmatched durability and luxury feel.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="why-icon"><i class="fas fa-leaf"></i></div>
+          <h3 class="why-title">Sustainable Heritage</h3>
+          <p class="why-desc">Supporting fair wages for local rural artisans while ensuring eco-conscious manufacturing footprints that honor nature.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Testimonials Section --- -->
+  <section class="section">
+    <div class="container">
+      <div class="testimonials-slider-container" data-aos="fade-up">
+        <!-- Slide 1 -->
+        <div class="testimonial-slide active">
+          <p class="testimonial-quote">The tufted cushions are absolutely exquisite. The texture depth is unlike anything you find in mass retail. It completely anchored my living room restyling.</p>
+          <div class="testimonial-author">Aanya Malhotra</div>
+          <div class="testimonial-role">Interior Architect, Mumbai</div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="testimonial-slide">
+          <p class="testimonial-quote">I bought the macrame shoulder bag as a gift for my daughter, and she is obsessed. The wooden handles look so upscale and sturdy. A beautiful piece of art!</p>
+          <div class="testimonial-author">Elena Rostova</div>
+          <div class="testimonial-role">Boutique Owner, New York</div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="testimonial-slide">
+          <p class="testimonial-quote">The Terracotta lamp gives off the most divine, warm glow. You can see the slight firing gradients on the clay, which highlights its handcrafted authenticity.</p>
+          <div class="testimonial-author">Karan Johar</div>
+          <div class="testimonial-role">Art Collector, Delhi</div>
+        </div>
+
+        <!-- Testimonial Dots Nav -->
+        <div class="testimonial-nav">
+          <div class="testimonial-indicator active"></div>
+          <div class="testimonial-indicator"></div>
+          <div class="testimonial-indicator"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Instagram Feed Section --- -->
+  <section class="section section-bg-beige">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Social Inspiration</span>
+        <h2 class="section-title">Follow @SVDesignStudio</h2>
+        <p class="section-desc">Join our visual journey on Instagram and catch behind-the-scenes craft stories.</p>
+      </div>
+
+      <div class="insta-grid" data-aos="fade-up">
+        <div class="insta-item">
+          <img src="assets/images/insta_1.png" alt="Instagram Post 1">
+          <div class="insta-overlay">
+            <div class="insta-icon-container">
+              <span><i class="fas fa-heart"></i> 245</span>
+              <span><i class="fas fa-comment"></i> 18</span>
+            </div>
+          </div>
+        </div>
+        <div class="insta-item">
+          <img src="assets/images/insta_2.png" alt="Instagram Post 2">
+          <div class="insta-overlay">
+            <div class="insta-icon-container">
+              <span><i class="fas fa-heart"></i> 312</span>
+              <span><i class="fas fa-comment"></i> 24</span>
+            </div>
+          </div>
+        </div>
+        <div class="insta-item">
+          <img src="assets/images/insta_3.png" alt="Instagram Post 3">
+          <div class="insta-overlay">
+            <div class="insta-icon-container">
+              <span><i class="fas fa-heart"></i> 189</span>
+              <span><i class="fas fa-comment"></i> 12</span>
+            </div>
+          </div>
+        </div>
+        <div class="insta-item">
+          <img src="assets/images/insta_4.png" alt="Instagram Post 4">
+          <div class="insta-overlay">
+            <div class="insta-icon-container">
+              <span><i class="fas fa-heart"></i> 420</span>
+              <span><i class="fas fa-comment"></i> 37</span>
+            </div>
+          </div>
+        </div>
+        <div class="insta-item">
+          <img src="assets/images/insta_5.png" alt="Instagram Post 5">
+          <div class="insta-overlay">
+            <div class="insta-icon-container">
+              <span><i class="fas fa-heart"></i> 388</span>
+              <span><i class="fas fa-comment"></i> 29</span>
+            </div>
+          </div>
+        </div>
+        <div class="insta-item">
+          <img src="assets/images/insta_6.png" alt="Instagram Post 6">
+          <div class="insta-overlay">
+            <div class="insta-icon-container">
+              <span><i class="fas fa-heart"></i> 510</span>
+              <span><i class="fas fa-comment"></i> 43</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Newsletter Section --- -->
+  <section class="section">
+    <div class="container">
+      <div class="newsletter-wrapper" data-aos="fade-up">
+        <span class="section-subtitle">Join the Inner Circle</span>
+        <h2 class="section-title">Subscribe to our Newsletter</h2>
+        <p class="section-desc">Receive exclusive previews of upcoming drops, designer insights, and invitations to early access catalog pre-orders.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required aria-label="Email address for subscription">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Standard Footer --- -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col footer-about">
+        <a href="index.html" class="footer-logo">
+          SV DESIGN
+          <span>Studio</span>
+        </a>
+        <p>We blend traditional heritage craft with modern minimal layouts, bringing luxury home decor and handcrafted bags to contemporary design lovers.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col footer-links">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Brand</a></li>
+          <li><a href="shop.html">Shop / Catalog</a></li>
+          <li><a href="gallery.html">Lookbook Look</a></li>
+          <li><a href="custom.html">Custom Orders</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-links">
+        <h5>Legal Info</h5>
+        <ul>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="collaborate.html">Wholesale Application</a></li>
+          <li><a href="contact.html">Inquiries Help</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h5>Our Studio</h5>
+        <ul>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Plot 42, Sector 12, Industrial Craft Block, Gurugram, India</span>
+          </li>
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 99999 99999</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <span>hello@svdesignstudio.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 SV Design Studio. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Credits</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- --- Mobile Sticky Bottom Navigation Panel --- -->
+  <div class="mobile-sticky-cta">
+    <a href="index.html" class="mobile-cta-item" aria-label="Home Navigation">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="shop.html" class="mobile-cta-item" aria-label="Shop Navigation">
+      <i class="fas fa-store"></i>
+      <span>Shop</span>
+    </a>
+    <a href="custom.html" class="mobile-cta-item" aria-label="Custom Design Orders">
+      <i class="fas fa-palette"></i>
+      <span>Custom</span>
+    </a>
+    <a href="contact.html" class="mobile-cta-item mobile-cta-inquiry" aria-label="Quick WhatsApp Inquiry">
+      <i class="fab fa-whatsapp"></i>
+      <span>Inquire</span>
+    </a>
+  </div>
+
+  <!-- --- Floating WhatsApp Widget --- -->
+  <div class="whatsapp-floating-widget">
+    <div class="wa-tooltip">Inquire on WhatsApp</div>
+    <div class="wa-btn"><i class="fab fa-whatsapp"></i></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

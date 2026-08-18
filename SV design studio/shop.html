@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Catalog | SV Design Studio</title>
+  <meta name="description" content="Browse our luxury collections of handcrafted bags, boho pillows, stoneware vases, and premium textiles. Filter by price, category, and sorting preferences.">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <style>
+    /* Sidebar Filter Styles */
+    .shop-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+    }
+    
+    .shop-sidebar {
+      background-color: white;
+      padding: 30px;
+      border-radius: var(--border-radius-md);
+      box-shadow: var(--box-shadow-luxury);
+      border: var(--border-light);
+      align-self: start;
+    }
+    
+    .sidebar-widget {
+      margin-bottom: 35px;
+    }
+    
+    .sidebar-widget h4 {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: var(--border-light);
+      text-transform: uppercase;
+      font-family: var(--font-sans-poppins);
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: 0.05em;
+    }
+    
+    .sidebar-links li {
+      margin-bottom: 12px;
+    }
+    
+    .sidebar-links a {
+      color: rgba(26,26,26,0.7);
+      font-family: var(--font-sans-poppins);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .sidebar-links a.active, .sidebar-links a:hover {
+      color: var(--brand-brown);
+    }
+    
+    .search-box {
+      position: relative;
+      width: 100%;
+    }
+    
+    .search-box input {
+      width: 100%;
+      border: var(--border-light);
+      padding: 12px 40px 12px 16px;
+      border-radius: var(--border-radius-sm);
+      font-family: var(--font-sans-inter);
+      font-size: 0.85rem;
+      background-color: var(--primary-bg);
+      transition: var(--transition-smooth);
+    }
+    
+    .search-box input:focus {
+      border-color: var(--brand-brown);
+      background-color: white;
+    }
+    
+    .search-box i {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      color: var(--brand-brown);
+      pointer-events: none;
+    }
+    
+    .range-slider-container {
+      padding: 10px 0;
+    }
+    
+    .range-slider {
+      width: 100%;
+      accent-color: var(--brand-brown);
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+    
+    .range-vals {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-sans-poppins);
+      font-size: 0.8rem;
+      color: rgba(26,26,26,0.6);
+      font-weight: 600;
+    }
+    
+    .catalog-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      background-color: white;
+      padding: 15px 30px;
+      border-radius: var(--border-radius-md);
+      box-shadow: var(--box-shadow-luxury);
+      border: var(--border-light);
+    }
+    
+    .catalog-controls p {
+      font-family: var(--font-sans-poppins);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    .catalog-sort select {
+      border: var(--border-light);
+      padding: 8px 16px;
+      border-radius: var(--border-radius-sm);
+      font-family: var(--font-sans-poppins);
+      font-size: 0.8rem;
+      font-weight: 500;
+      background-color: var(--primary-bg);
+      cursor: pointer;
+      outline: none;
+    }
+    
+    .catalog-sort select:focus {
+      border-color: var(--brand-brown);
+    }
+    
+    /* Layout collapse for catalog page */
+    @media (max-width: 991px) {
+      .shop-layout {
+        grid-template-columns: 1fr;
+      }
+      
+      .shop-sidebar {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        width: 100%;
+      }
+      
+      .sidebar-widget {
+        margin-bottom: 0;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .shop-sidebar {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- --- Sticky Navbar --- -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        SV DESIGN
+        <span>Studio</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Brand</a>
+        <a href="shop.html" class="active">Shop / Collection</a>
+        <a href="gallery.html">Gallery / Lookbook</a>
+        <a href="custom.html">Custom Orders</a>
+        <a href="collaborate.html">Collaboration</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a href="shop.html" class="nav-icon" title="Search"><i class="fas fa-search"></i></a>
+        <a href="shop.html" class="nav-icon" title="Wishlist">
+          <i class="far fa-heart"></i>
+          <span class="nav-icon-badge wishlist-badge-count">0</span>
+        </a>
+        <div class="menu-toggle" id="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- --- Page Header --- -->
+  <section class="section section-bg-beige" style="padding-top: 140px; padding-bottom: 60px;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 0;">
+        <span class="section-subtitle">Premium Boutique</span>
+        <h1 class="section-title">The Collection</h1>
+        <p class="section-desc">Heirloom design pieces thoughtfully shaped to carry warmth and artistic legacy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Catalog Layout --- -->
+  <section class="section">
+    <div class="container">
+      <div class="shop-layout">
+        
+        <!-- Sidebar Filters -->
+        <aside class="shop-sidebar" data-aos="fade-right">
+          <!-- Widget 1: Search -->
+          <div class="sidebar-widget">
+            <h4>Search Catalog</h4>
+            <div class="search-box">
+              <input type="text" id="shop-search" placeholder="Type keywords..." aria-label="Search through products">
+              <i class="fas fa-search"></i>
+            </div>
+          </div>
+
+          <!-- Widget 2: Categories -->
+          <div class="sidebar-widget">
+            <h4>Categories</h4>
+            <ul class="sidebar-links">
+              <li><a href="#" class="shop-filter-cat active" data-cat="all">All Products</a></li>
+              <li><a href="#" class="shop-filter-cat" data-cat="bags">Handmade Bags</a></li>
+              <li><a href="#" class="shop-filter-cat" data-cat="cushions">Artisanal Cushions</a></li>
+              <li><a href="#" class="shop-filter-cat" data-cat="decor">Home Decor</a></li>
+              <li><a href="#" class="shop-filter-cat" data-cat="accessories">Accessories</a></li>
+              <li><a href="#" class="shop-filter-cat" data-cat="textiles">Textiles</a></li>
+            </ul>
+          </div>
+
+          <!-- Widget 3: Price Slider -->
+          <div class="sidebar-widget">
+            <h4>Price Limit</h4>
+            <div class="range-slider-container">
+              <input type="range" id="price-range" min="30" max="300" value="300" class="range-slider" aria-label="Price range filter">
+              <div class="range-vals">
+                <span>Min: $30</span>
+                <span>Max: <strong id="price-val" style="color: var(--brand-brown);">$300</strong></span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Product Grid List -->
+        <main class="shop-content">
+          <!-- Catalog Controller Top -->
+          <div class="catalog-controls" data-aos="fade-up">
+            <p>Refining by artisan standards</p>
+            
+            <div class="catalog-sort">
+              <label for="shop-sort" style="font-family: var(--font-sans-poppins); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-right: 10px; color: rgba(26,26,26,0.6);">Sort By:</label>
+              <select id="shop-sort">
+                <option value="popular">Bestsellers First</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dynamic Products Target Grid -->
+          <div class="products-grid catalog-grid-container">
+            <!-- Renders inside js/main.js -->
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+              <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--brand-brown);"></i>
+              <p style="margin-top: 15px;">Weaving catalog...</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Standard Footer --- -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col footer-about">
+        <a href="index.html" class="footer-logo">
+          SV DESIGN
+          <span>Studio</span>
+        </a>
+        <p>We blend traditional heritage craft with modern minimal layouts, bringing luxury home decor and handcrafted bags to contemporary design lovers.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col footer-links">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Brand</a></li>
+          <li><a href="shop.html">Shop / Catalog</a></li>
+          <li><a href="gallery.html">Lookbook Look</a></li>
+          <li><a href="custom.html">Custom Orders</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-links">
+        <h5>Legal Info</h5>
+        <ul>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="collaborate.html">Wholesale Application</a></li>
+          <li><a href="contact.html">Inquiries Help</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h5>Our Studio</h5>
+        <ul>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Plot 42, Sector 12, Industrial Craft Block, Gurugram, India</span>
+          </li>
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 99999 99999</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <span>hello@svdesignstudio.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 SV Design Studio. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Credits</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- --- Mobile Sticky Bottom Navigation Panel --- -->
+  <div class="mobile-sticky-cta">
+    <a href="index.html" class="mobile-cta-item" aria-label="Home Navigation">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="shop.html" class="mobile-cta-item" aria-label="Shop Navigation">
+      <i class="fas fa-store"></i>
+      <span>Shop</span>
+    </a>
+    <a href="custom.html" class="mobile-cta-item" aria-label="Custom Design Orders">
+      <i class="fas fa-palette"></i>
+      <span>Custom</span>
+    </a>
+    <a href="contact.html" class="mobile-cta-item mobile-cta-inquiry" aria-label="Quick WhatsApp Inquiry">
+      <i class="fab fa-whatsapp"></i>
+      <span>Inquire</span>
+    </a>
+  </div>
+
+  <!-- --- Floating WhatsApp Widget --- -->
+  <div class="whatsapp-floating-widget">
+    <div class="wa-tooltip">Inquire on WhatsApp</div>
+    <div class="wa-btn"><i class="fab fa-whatsapp"></i></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  
+  <script>
+    // Custom logic to grab category query parameter on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('cat');
+      if (catParam) {
+        const filterBtns = document.querySelectorAll('.shop-filter-cat');
+        filterBtns.forEach(btn => {
+          if (btn.dataset.cat === catParam) {
+            filterBtns.forEach(f => f.classList.remove('active'));
+            btn.classList.add('active');
+            filterCatalog(catParam);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

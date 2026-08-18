@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom & Bespoke Orders | SV Design Studio</title>
+  <meta name="description" content="Request custom handcrafted home decor, tailored macrame bags, or personalized embroidered fabrics. Share your budget, reference design, and dimensions.">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <style>
+    .custom-form-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 50px;
+      border-radius: var(--border-radius-md);
+      box-shadow: var(--box-shadow-luxury);
+      border: var(--border-light);
+    }
+    
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 24px;
+    }
+    
+    .form-group label {
+      font-family: var(--font-sans-poppins);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    
+    .form-group input, .form-group select, .form-group textarea {
+      border: var(--border-light);
+      background-color: var(--primary-bg);
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      border-radius: var(--border-radius-sm);
+      transition: var(--transition-smooth);
+      width: 100%;
+    }
+    
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--brand-brown);
+      background-color: white;
+    }
+    
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    
+    /* Drag & Drop File Upload Zone */
+    .file-upload-zone {
+      border: 2px dashed rgba(139, 107, 82, 0.3);
+      padding: 30px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: var(--border-radius-sm);
+      transition: var(--transition-smooth);
+      margin-top: 5px;
+    }
+    
+    .file-upload-zone:hover {
+      border-color: var(--brand-brown);
+      background-color: rgba(231, 216, 201, 0.15);
+    }
+    
+    .file-upload-icon {
+      font-size: 2.2rem;
+      color: var(--brand-brown);
+      margin-bottom: 12px;
+    }
+    
+    .file-upload-zone p {
+      font-size: 0.85rem;
+      color: rgba(26,26,26,0.6);
+    }
+    
+    .file-upload-zone span {
+      text-decoration: underline;
+      font-weight: 500;
+      color: var(--brand-brown);
+    }
+
+    @media (max-width: 768px) {
+      .custom-form-wrapper {
+        padding: 30px 20px;
+      }
+      
+      .form-group-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- --- Sticky Navbar --- -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        SV DESIGN
+        <span>Studio</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Brand</a>
+        <a href="shop.html">Shop / Collection</a>
+        <a href="gallery.html">Gallery / Lookbook</a>
+        <a href="custom.html" class="active">Custom Orders</a>
+        <a href="collaborate.html">Collaboration</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a href="shop.html" class="nav-icon" title="Search"><i class="fas fa-search"></i></a>
+        <a href="shop.html" class="nav-icon" title="Wishlist">
+          <i class="far fa-heart"></i>
+          <span class="nav-icon-badge wishlist-badge-count">0</span>
+        </a>
+        <div class="menu-toggle" id="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- --- Page Header --- -->
+  <section class="section section-bg-beige" style="padding-top: 140px; padding-bottom: 60px;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 0;">
+        <span class="section-subtitle">Co-Creative Studios</span>
+        <h1 class="section-title">Bespoke Commission Request</h1>
+        <p class="section-desc">Share your space dimensions, preferred weaving loops, or custom bag aesthetics with us.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Custom Request Form --- -->
+  <section class="section">
+    <div class="container">
+      <div class="custom-form-wrapper" data-aos="fade-up">
+        
+        <form id="custom-order-form">
+          <!-- Row 1: Name & Email -->
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="custom-name">Full Name *</label>
+              <input type="text" id="custom-name" placeholder="E.g. Priya Sharma" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="custom-email">Email Address *</label>
+              <input type="email" id="custom-email" placeholder="E.g. priya@domain.com" required>
+            </div>
+          </div>
+
+          <!-- Row 2: Phone & Product Type -->
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="custom-phone">Phone Number *</label>
+              <input type="tel" id="custom-phone" placeholder="E.g. +91 98765 43210" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="custom-type">Product Category *</label>
+              <select id="custom-type" required>
+                <option value="" disabled selected>Select category...</option>
+                <option value="bags">Custom Handbag / Tote</option>
+                <option value="cushions">Custom Cushion cover / Pillow set</option>
+                <option value="ceramics">Bespoke Pottery / Sculptural Lamps</option>
+                <option value="textiles">Handwoven Throw blankets / Rugs</option>
+                <option value="other">Other Art Installations</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Row 3: Design Requirements -->
+          <div class="form-group">
+            <label for="custom-requirements">Design Requirements & Dimensions *</label>
+            <textarea id="custom-requirements" placeholder="Provide notes regarding size adjustments (e.g. 20'x20' cushion), pattern requests, colors, or hardware details..." required></textarea>
+          </div>
+
+          <!-- Row 4: Budget Range Slider -->
+          <div class="form-group">
+            <label>Target Budget Range</label>
+            <div class="range-slider-container" style="padding-top: 0;">
+              <input type="range" id="custom-budget" min="5000" max="100000" step="2500" value="5000" class="range-slider" style="margin-bottom: 8px;" aria-label="Bespoke order budget slider">
+              <div class="range-vals">
+                <span>Min: ₹5,000</span>
+                <span>Current Budget Cap: <strong id="budget-val" style="color: var(--brand-brown);">₹5,000</strong></span>
+                <span>Max: ₹1,00,000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 5: Reference Image Upload Drag-Drop -->
+          <div class="form-group">
+            <label>Upload Sketch / Reference Image</label>
+            <div class="file-upload-zone">
+              <i class="fas fa-cloud-upload-alt file-upload-icon"></i>
+              <p>Drag & drop reference image here, or <span>browse</span></p>
+            </div>
+            <input type="file" id="reference-img" accept="image/*" style="display: none;" aria-label="Upload reference sketch">
+          </div>
+
+          <div style="text-align: center; margin-top: 40px;">
+            <button type="submit" class="btn btn-primary" style="padding: 16px 50px;">Submit Commission Form</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Standard Footer --- -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col footer-about">
+        <a href="index.html" class="footer-logo">
+          SV DESIGN
+          <span>Studio</span>
+        </a>
+        <p>We blend traditional heritage craft with modern minimal layouts, bringing luxury home decor and handcrafted bags to contemporary design lovers.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col footer-links">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Brand</a></li>
+          <li><a href="shop.html">Shop / Catalog</a></li>
+          <li><a href="gallery.html">Lookbook Look</a></li>
+          <li><a href="custom.html">Custom Orders</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-links">
+        <h5>Legal Info</h5>
+        <ul>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="collaborate.html">Wholesale Application</a></li>
+          <li><a href="contact.html">Inquiries Help</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h5>Our Studio</h5>
+        <ul>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Plot 42, Sector 12, Industrial Craft Block, Gurugram, India</span>
+          </li>
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 99999 99999</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <span>hello@svdesignstudio.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 SV Design Studio. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Credits</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- --- Mobile Sticky Bottom Navigation Panel --- -->
+  <div class="mobile-sticky-cta">
+    <a href="index.html" class="mobile-cta-item" aria-label="Home Navigation">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="shop.html" class="mobile-cta-item" aria-label="Shop Navigation">
+      <i class="fas fa-store"></i>
+      <span>Shop</span>
+    </a>
+    <a href="custom.html" class="mobile-cta-item" aria-label="Custom Design Orders">
+      <i class="fas fa-palette"></i>
+      <span>Custom</span>
+    </a>
+    <a href="contact.html" class="mobile-cta-item mobile-cta-inquiry" aria-label="Quick WhatsApp Inquiry">
+      <i class="fab fa-whatsapp"></i>
+      <span>Inquire</span>
+    </a>
+  </div>
+
+  <!-- --- Floating WhatsApp Widget --- -->
+  <div class="whatsapp-floating-widget">
+    <div class="wa-tooltip">Inquire on WhatsApp</div>
+    <div class="wa-btn"><i class="fab fa-whatsapp"></i></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

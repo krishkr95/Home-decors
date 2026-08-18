@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery & Lookbook | SV Design Studio</title>
+  <meta name="description" content="Immerse yourself in our visual lookbook. High-definition lifestyle masonry showcase of handcrafted bags, textured cushions, and behind-the-scenes artistry.">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <style>
+    /* Pinterest-style Masonry Column System */
+    .gallery-masonry-wrapper {
+      column-count: 3;
+      column-gap: 24px;
+      margin-top: 40px;
+    }
+    
+    .gallery-grid-item {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      cursor: zoom-in;
+      border-radius: var(--border-radius-md);
+      box-shadow: var(--box-shadow-luxury);
+      transition: var(--transition-smooth);
+      background-color: var(--secondary-bg);
+    }
+
+    .gallery-grid-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .gallery-grid-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+
+    .gallery-grid-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(26,26,26,0.7) 0%, rgba(26,26,26,0.1) 60%, transparent 100%);
+      opacity: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px;
+      transition: var(--transition-smooth);
+      color: white;
+    }
+
+    .gallery-grid-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay-cat {
+      font-family: var(--font-sans-poppins);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand-gold);
+      margin-bottom: 6px;
+    }
+
+    .gallery-overlay-title {
+      font-family: var(--font-serif-cormorant);
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    /* Filter Buttons */
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-filter-btn {
+      padding: 10px 24px;
+      font-family: var(--font-sans-poppins);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: var(--border-light);
+      background-color: white;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: var(--transition-smooth);
+    }
+
+    .gallery-filter-btn.active, .gallery-filter-btn:hover {
+      background-color: var(--charcoal);
+      color: white;
+      border-color: var(--charcoal);
+    }
+
+    @media (max-width: 991px) {
+      .gallery-masonry-wrapper {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .gallery-masonry-wrapper {
+        column-count: 1;
+        column-gap: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- --- Sticky Navbar --- -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        SV DESIGN
+        <span>Studio</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Brand</a>
+        <a href="shop.html">Shop / Collection</a>
+        <a href="gallery.html" class="active">Gallery / Lookbook</a>
+        <a href="custom.html">Custom Orders</a>
+        <a href="collaborate.html">Collaboration</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a href="shop.html" class="nav-icon" title="Search"><i class="fas fa-search"></i></a>
+        <a href="shop.html" class="nav-icon" title="Wishlist">
+          <i class="far fa-heart"></i>
+          <span class="nav-icon-badge wishlist-badge-count">0</span>
+        </a>
+        <div class="menu-toggle" id="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- --- Page Header --- -->
+  <section class="section section-bg-beige" style="padding-top: 140px; padding-bottom: 60px;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 0;">
+        <span class="section-subtitle">Visual Inspiration</span>
+        <h1 class="section-title">Lookbook Gallery</h1>
+        <p class="section-desc">Observe the slow curves of luxury handcrafted items in authentic living contexts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Masonry Lookbook Grid --- -->
+  <section class="section">
+    <div class="container">
+      
+      <!-- Category filters -->
+      <div class="gallery-filters" data-aos="fade-up">
+        <button class="gallery-filter-btn active" data-filter="all">All Visuals</button>
+        <button class="gallery-filter-btn" data-filter="bags">Bags</button>
+        <button class="gallery-filter-btn" data-filter="living">Living Spaces</button>
+        <button class="gallery-filter-btn" data-filter="decor">Decor Accents</button>
+        <button class="gallery-filter-btn" data-filter="bts">Behind The Scenes</button>
+      </div>
+
+      <!-- Masonry Grid -->
+      <div class="gallery-masonry-wrapper" data-aos="fade-up">
+        <!-- Item 1 -->
+        <div class="gallery-grid-item" data-cat="living">
+          <img src="assets/images/hero_1.png" alt="Luxury Boho Living Room Decor">
+          <div class="gallery-item-overlay">
+            <span class="gallery-overlay-cat">Living Space</span>
+            <h4 class="gallery-overlay-title">Woven Luxury Sanctuary</h4>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-grid-item" data-cat="bags">
+          <img src="assets/images/bag_1.png" alt="Handcrafted Macrame Bag Detail">
+          <div class="gallery-item-overlay">
+            <span class="gallery-overlay-cat">Bags</span>
+            <h4 class="gallery-overlay-title">Macrame Knotting Focus</h4>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-grid-item" data-cat="decor">
+          <img src="assets/images/decor_1.png" alt="Terracotta Lamp Table setup">
+          <div class="gallery-item-overlay">
+            <span class="gallery-overlay-cat">Decor Accents</span>
+            <h4 class="gallery-overlay-title">Terracotta Ambient Warmth</h4>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-grid-item" data-cat="bts">
+          <img src="assets/images/craft_bts.png" alt="Weaving loom close-up">
+          <div class="gallery-item-overlay">
+            <span class="gallery-overlay-cat">Behind the Scenes</span>
+            <h4 class="gallery-overlay-title">Fibers Sourced & Hand Spun</h4>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-grid-item" data-cat="living">
+          <img src="assets/images/cushion_cat.png" alt="Embroidered Cushions on sofa">
+          <div class="gallery-item-overlay">
+            <span class="gallery-overlay-cat">Living Space</span>
+            <h4 class="gallery-overlay-title">Tufted Cushion Layering</h4>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-grid-item" data-cat="decor">
+          <img src="assets/images/decor_cat.png" alt="Stoneware glaze vases display">
+          <div class="gallery-item-overlay">
+            <span class="gallery-overlay-cat">Decor Accents</span>
+            <h4 class="gallery-overlay-title">Glazed Ceramic Geometrics</h4>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="gallery-grid-item" data-cat="bags">
+          <img src="assets/images/hero_2.png" alt="Embroidered Handbags styling">
+          <div class="gallery-item-overlay">
+            <span class="gallery-overlay-cat">Bags</span>
+            <h4 class="gallery-overlay-title">Floral Motif Stitches</h4>
+          </div>
+        </div>
+
+        <!-- Item 8 -->
+        <div class="gallery-grid-item" data-cat="bts">
+          <img src="assets/images/founder.png" alt="Founder drawing designs in studio">
+          <div class="gallery-item-overlay">
+            <span class="gallery-overlay-cat">Behind the Scenes</span>
+            <h4 class="gallery-overlay-title">Initial Conceptual Sketches</h4>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- Standard Footer --- -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col footer-about">
+        <a href="index.html" class="footer-logo">
+          SV DESIGN
+          <span>Studio</span>
+        </a>
+        <p>We blend traditional heritage craft with modern minimal layouts, bringing luxury home decor and handcrafted bags to contemporary design lovers.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col footer-links">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Brand</a></li>
+          <li><a href="shop.html">Shop / Catalog</a></li>
+          <li><a href="gallery.html">Lookbook Look</a></li>
+          <li><a href="custom.html">Custom Orders</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-links">
+        <h5>Legal Info</h5>
+        <ul>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="collaborate.html">Wholesale Application</a></li>
+          <li><a href="contact.html">Inquiries Help</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h5>Our Studio</h5>
+        <ul>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Plot 42, Sector 12, Industrial Craft Block, Gurugram, India</span>
+          </li>
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 99999 99999</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <span>hello@svdesignstudio.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 SV Design Studio. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Credits</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- --- Mobile Sticky Bottom Navigation Panel --- -->
+  <div class="mobile-sticky-cta">
+    <a href="index.html" class="mobile-cta-item" aria-label="Home Navigation">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="shop.html" class="mobile-cta-item" aria-label="Shop Navigation">
+      <i class="fas fa-store"></i>
+      <span>Shop</span>
+    </a>
+    <a href="custom.html" class="mobile-cta-item" aria-label="Custom Design Orders">
+      <i class="fas fa-palette"></i>
+      <span>Custom</span>
+    </a>
+    <a href="contact.html" class="mobile-cta-item mobile-cta-inquiry" aria-label="Quick WhatsApp Inquiry">
+      <i class="fab fa-whatsapp"></i>
+      <span>Inquire</span>
+    </a>
+  </div>
+
+  <!-- --- Floating WhatsApp Widget --- -->
+  <div class="whatsapp-floating-widget">
+    <div class="wa-tooltip">Inquire on WhatsApp</div>
+    <div class="wa-btn"><i class="fab fa-whatsapp"></i></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
