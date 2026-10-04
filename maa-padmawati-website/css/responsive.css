@@ -1,0 +1,393 @@
+/* ==========================================================================
+   MAA PADMAWATI PLY & DECOR - RESPONSIVE STYLES
+   Breakpoints: 1440px, 1280px, 1024px, 768px, 480px, 360px, 320px
+   Guarantees: Zero horizontal overflow, touch targets >= 44px, elegant hierarchy
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. LARGE DESKTOPS (<= 1440px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1440px) {
+  .hero-floating-card {
+    right: 3rem;
+    width: 290px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. DESKTOPS & SMALL LAPTOPS (<= 1280px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1280px) {
+  .desktop-nav {
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+  }
+
+  .hero-floating-card {
+    right: 2rem;
+    bottom: 10%;
+    width: 270px;
+    padding: 1.25rem;
+  }
+
+  .journey-steps-wrap {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. TABLETS (<= 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .desktop-nav,
+  .header-quote-btn {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    min-height: auto;
+    padding: 7rem 0 5rem 0;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding: 2rem 0;
+  }
+
+  .hero-floating-card {
+    position: static;
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  /* Intro Section */
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .intro-visuals {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .intro-badge-card {
+    bottom: -1.5rem;
+    left: 1rem;
+    padding: 1.25rem;
+  }
+
+  /* Stats Section */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .stat-item:nth-child(2) {
+    border-right: none;
+  }
+
+  /* Category Grid */
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .category-card,
+  .category-card:nth-child(n) {
+    grid-column: span 1 !important;
+    height: 380px !important;
+  }
+
+  /* Material Explorer */
+  .explorer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .explorer-visual-box {
+    height: 420px;
+  }
+
+  /* Interior Inspiration */
+  .inspiration-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .insp-img-box {
+    height: 380px;
+  }
+
+  /* Gallery */
+  .gallery-masonry-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item,
+  .gallery-item:nth-child(n) {
+    height: 340px !important;
+  }
+
+  /* Why Us */
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Quote Form */
+  .quote-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .quote-info-box {
+    padding-right: 0;
+  }
+
+  /* Contact & Map */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container {
+    min-height: 380px;
+  }
+
+  /* Instagram Strip */
+  .instagram-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. SMALL TABLETS & LARGE PHONES (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 76px;
+    --header-height-scrolled: 64px;
+    --section-pad: 4rem;
+  }
+
+  .brand-title {
+    font-size: 1.05rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .hero-trust-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .hero-scroll-indicator {
+    display: none;
+  }
+
+  .intro-features {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-desc {
+    max-height: 80px;
+    opacity: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .explorer-tabs-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .explorer-specs-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .journey-steps-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full-width {
+    grid-column: span 1;
+  }
+
+  .quickview-modal-card {
+    grid-template-columns: 1fr;
+    max-height: 85vh;
+  }
+
+  .quickview-img-box {
+    height: 260px;
+    min-height: auto;
+  }
+
+  .quickview-content-box {
+    padding: 1.5rem;
+  }
+
+  .lightbox-prev-btn { left: 0.5rem; }
+  .lightbox-next-btn { right: 0.5rem; }
+  .lightbox-close-btn { top: -3rem; }
+
+  .floating-whatsapp {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .whatsapp-bubble {
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-tooltip {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. MOBILE PHONES (<= 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.35rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(17, 16, 14, 0.1);
+    padding-bottom: 1.5rem;
+  }
+
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+
+  .gallery-masonry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instagram-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .footer-legal-links {
+    justify-content: center;
+  }
+
+  .quote-form-card {
+    padding: 1.5rem;
+  }
+
+  .contact-card-box {
+    padding: 1.5rem;
+  }
+
+  .explorer-detail-card {
+    padding: 1.5rem;
+  }
+
+  .intro-main-img-box {
+    height: 360px;
+  }
+
+  .intro-badge-card {
+    position: static;
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. ULTRA-COMPACT SCREENS (<= 360px & 320px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.95rem;
+  }
+
+  .brand-title {
+    font-size: 0.95rem;
+  }
+
+  .brand-symbol {
+    width: 38px;
+    height: 38px;
+  }
+
+  .btn {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.75rem;
+  }
+
+  .explorer-tabs-nav {
+    grid-template-columns: 1fr;
+  }
+}
