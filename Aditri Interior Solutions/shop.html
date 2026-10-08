@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Aditri Interior Solutions - Browse our catalog of Modular Kitchens, Wardrobes, Cots, TV Units, Wallpapers, Curtains & Glass Stickering.">
+    <title>Solutions &amp; Catalog | Aditri Interior Solutions</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <style>
+        .shop-header {
+            padding: 4.5rem 5% 3.5rem;
+            background: linear-gradient(135deg, #181E27 0%, #0F172A 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .shop-container {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 3rem;
+            padding: 3rem 5% 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .filters {
+            position: sticky;
+            top: 110px;
+            height: fit-content;
+            background: #FFFFFF;
+            padding: 2rem;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #E5E7EB;
+        }
+
+        .filter-group {
+            margin-bottom: 2rem;
+        }
+
+        .filter-group h4 {
+            font-family: var(--font-body-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #F3F4F6;
+            padding-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+
+        .filter-list li {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            color: var(--color-gray-dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter-list li:hover,
+        .filter-list li.active {
+            color: var(--color-accent);
+            font-weight: 600;
+            padding-left: 5px;
+        }
+
+        .shop-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .sort-select {
+            padding: 0.6rem 1rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 4px;
+            font-family: var(--font-body-secondary);
+            font-size: 0.85rem;
+            outline: none;
+            background: white;
+        }
+
+        @media (max-width: 992px) {
+            .shop-container {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                position: static;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Unified Sticky Header -->
+    <header class="site-header" id="siteHeader">
+        <!-- Slim Luxury Utility Bar -->
+        <div class="header-top-bar">
+            <div class="top-bar-container">
+                <div class="top-bar-left">
+                    <span class="v3-badge"><i class="fas fa-shield-halved"></i> V3 HOMEZONE</span>
+                    <span class="top-bar-quote">"Ideas beyond Imagination"</span>
+                    <span class="top-bar-divider">•</span>
+                    <span class="top-bar-text">Authorized Interior Design Studio</span>
+                </div>
+                <div class="top-bar-right">
+                    <a href="tel:9141123939" class="top-contact-link"><i class="fas fa-phone-alt"></i> <span>+91 91411 23939</span></a>
+                    <a href="https://wa.me/919141123939?text=Hello%20Aditri%20Interior%20Solutions,%20I%20would%20like%20a%20free%20design%20consultation" target="_blank" class="top-contact-link top-whatsapp">
+                        <i class="fab fa-whatsapp"></i> <span>WhatsApp Us</span>
+                    </a>
+                    <a href="mailto:info@v3-india.com" class="top-contact-link"><i class="far fa-envelope"></i> <span>info@v3-india.com</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <nav class="main-nav" id="mainNav">
+            <div class="nav-container">
+                <!-- Brand Logo -->
+                <a href="index.html" class="nav-brand-link" title="Aditri Interior Solutions - V3 Homezone">
+                    <img src="images/icons/aditri-logo.svg" alt="Aditri Interior Solutions Logo" class="brand-logo-img">
+                </a>
+
+                <!-- Nav Menu Items (Desktop Menu & Mobile Drawer) -->
+                <div class="nav-links-menu" id="navLinks">
+                    <!-- Mobile Drawer Header -->
+                    <div class="drawer-header">
+                        <div class="drawer-brand">
+                            <img src="images/icons/aditri-logo.svg" alt="Aditri Interior Solutions" class="drawer-brand-logo">
+                        </div>
+                        <button class="drawer-close-btn" id="drawerClose" aria-label="Close Menu">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <a href="index.html" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-home"></i> <span>Home</span></span>
+                    </a>
+
+                    <!-- Solutions Interactive Dropdown -->
+                    <div class="nav-item-dropdown" id="solutionsDropdown">
+                        <button type="button" class="nav-link-item dropdown-toggle" aria-expanded="false" aria-label="Toggle Interior Solutions Menu">
+                            <span class="nav-link-item-left"><i class="fas fa-gem"></i> <span>Solutions</span></span>
+                            <i class="fas fa-chevron-down dropdown-caret"></i>
+                        </button>
+                        <div class="dropdown-menu-panel">
+                            <div class="dropdown-panel-header">
+                                <span class="panel-eyebrow">OUR SPECIALIZATIONS</span>
+                                <span class="panel-title">Explore Core Interior Solutions</span>
+                            </div>
+                            <div class="dropdown-items-grid">
+                                <a href="shop.html?cat=kitchens" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-utensils"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Modular Kitchens</span>
+                                        <span class="dropdown-item-desc">Acrylic, PU &amp; Island layouts</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=wardrobes" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-door-closed"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Wardrobes &amp; Storage</span>
+                                        <span class="dropdown-item-desc">Sliding, walk-in &amp; hinged</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=cots" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-bed"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Luxury Cots &amp; Beds</span>
+                                        <span class="dropdown-item-desc">Upholstered &amp; hydraulic storage</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=tvunits" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-tv"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">TV Units &amp; Paneling</span>
+                                        <span class="dropdown-item-desc">Acoustic fluted &amp; floating units</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=wallpapers" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-scroll"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Designer Wallpapers</span>
+                                        <span class="dropdown-item-desc">Textured, 3D &amp; custom murals</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=curtains" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-bars-staggered"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Custom Curtains</span>
+                                        <span class="dropdown-item-desc">Motorized, sheer &amp; blackout</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=glass" class="dropdown-item-card dropdown-item-card-wide">
+                                    <div class="dropdown-item-icon"><i class="fas fa-sun"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Glass Stickering</span>
+                                        <span class="dropdown-item-desc">Architectural frosted &amp; privacy films</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="dropdown-panel-footer">
+                                <a href="shop.html" class="panel-all-link">Browse Full Catalog <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="index.html#storefront" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-store"></i> <span>Studio</span></span>
+                    </a>
+                    <a href="shop.html" class="nav-link-item active">
+                        <span class="nav-link-item-left"><i class="fas fa-shapes"></i> <span>Catalog</span></span>
+                    </a>
+                    <a href="about.html" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-award"></i> <span>About Us</span></span>
+                    </a>
+                    <a href="contact.html" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-envelope"></i> <span>Contact</span></span>
+                    </a>
+
+                    <!-- Mobile Drawer Action Buttons -->
+                    <div class="drawer-actions-section">
+                        <a href="contact.html" class="drawer-btn-cta">
+                            <i class="fas fa-pencil-ruler"></i>
+                            <span>Free 3D Estimate</span>
+                        </a>
+                        <a href="https://wa.me/919141123939?text=Hello%20Aditri%20Interior%20Solutions,%20I%20would%20like%20a%20free%20design%20consultation" target="_blank" class="drawer-btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp Consultation</span>
+                        </a>
+                        <a href="tel:9141123939" class="drawer-btn-call">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>Call +91 91411 23939</span>
+                        </a>
+                        <div class="drawer-footer-note">
+                            Authorized V3 Homezone Studio<br>
+                            <em>"Ideas beyond Imagination"</em>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Controls -->
+                <div class="nav-actions-group">
+                    <a href="tel:9141123939" class="nav-phone-chip" title="Call Designer Direct: +91 91411 23939">
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="phone-text">91411 23939</span>
+                    </a>
+                    <a href="tel:9141123939" class="nav-mobile-call-btn" title="Call Designer">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                    <a href="cart.html" class="nav-cart-btn" title="Estimate Basket">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count-badge">0</span>
+                    </a>
+                    <a href="contact.html" class="nav-cta-btn">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <span>Free 3D Estimate</span>
+                    </a>
+                    <button class="mobile-nav-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+                        <span class="hamburger-bar"></span>
+                        <span class="hamburger-bar"></span>
+                        <span class="hamburger-bar"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Shop Header -->
+    <header class="shop-header">
+        <span style="color: #FCD34D; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Ideas beyond Imagination</span>
+        <h1 data-aos="fade-up" style="margin-top: 0.5rem; color: #FFFFFF;">Interior Solutions &amp; Catalog</h1>
+        <p data-aos="fade-up" data-aos-delay="100" style="color: #CBD5E1; max-width: 650px; margin: 0 auto;">
+            Explore turnkey designs fabricated to custom dimensions with premium fittings and durable warranties.
+        </p>
+    </header>
+
+    <!-- Signboard Strip Banner -->
+    <div class="signboard-strip">
+        <div class="signboard-strip-content">
+            <span class="signboard-strip-item"><i class="fas fa-utensils"></i> MODULAR KITCHENS</span>
+            <span class="signboard-strip-dot">▪</span>
+            <span class="signboard-strip-item"><i class="fas fa-door-closed"></i> WARDROBES</span>
+            <span class="signboard-strip-dot">▪</span>
+            <span class="signboard-strip-item"><i class="fas fa-bed"></i> COTS</span>
+            <span class="signboard-strip-dot">▪</span>
+            <span class="signboard-strip-item"><i class="fas fa-tv"></i> TV UNITS</span>
+            <span class="signboard-strip-dot">▪</span>
+            <span class="signboard-strip-item"><i class="fas fa-palette"></i> WALLPAPERS</span>
+            <span class="signboard-strip-dot">▪</span>
+            <span class="signboard-strip-item"><i class="fas fa-scroll"></i> CURTAINS</span>
+            <span class="signboard-strip-dot">▪</span>
+            <span class="signboard-strip-item"><i class="fas fa-border-all"></i> GLASS STICKERING</span>
+        </div>
+    </div>
+
+    <!-- Shop Container -->
+    <main class="shop-container">
+        <!-- Sidebar Filters -->
+        <aside class="filters" data-aos="fade-right">
+            <div class="filter-group">
+                <h4>Signboard Categories</h4>
+                <ul class="filter-list" id="categoryFilter">
+                    <li class="active" data-filter="all">All Solutions <span>(7)</span></li>
+                    <li data-filter="kitchens">Modular Kitchens <span>(1)</span></li>
+                    <li data-filter="wardrobes">Wardrobes &amp; Storage <span>(1)</span></li>
+                    <li data-filter="cots">Cots &amp; Luxury Beds <span>(1)</span></li>
+                    <li data-filter="tvunits">TV Units &amp; Paneling <span>(1)</span></li>
+                    <li data-filter="wallpapers">Wallpapers &amp; Decor <span>(1)</span></li>
+                    <li data-filter="curtains">Curtains &amp; Drapes <span>(1)</span></li>
+                    <li data-filter="glass">Glass Stickering <span>(1)</span></li>
+                </ul>
+            </div>
+
+            <div class="filter-group">
+                <h4>Estimated Budget</h4>
+                <ul class="filter-list" id="priceFilter">
+                    <li class="active" data-min="0" data-max="9999999">All Price Ranges</li>
+                    <li data-min="0" data-max="25000">Under ₹25,000</li>
+                    <li data-min="25000" data-max="75000">₹25,000 - ₹75,000</li>
+                    <li data-min="75000" data-max="200000">₹75,000 - ₹2,00,000</li>
+                    <li data-min="200000" data-max="9999999">Over ₹2,00,000</li>
+                </ul>
+            </div>
+
+            <div style="background: #FDF2F2; padding: 1.2rem; border-radius: 6px; border: 1px solid #FECACA; text-align: center;">
+                <p style="font-size: 0.85rem; color: #991B1B; font-weight: 600; margin-bottom: 0.6rem;">Need Custom Dimensions?</p>
+                <a href="tel:9141123939" style="display: inline-block; background: var(--color-accent); color: white; padding: 6px 12px; font-size: 0.8rem; border-radius: 4px; font-weight: 600;">
+                    Call 91411 23939
+                </a>
+            </div>
+        </aside>
+
+        <!-- Product Listing -->
+        <div class="shop-content">
+            <div class="shop-toolbar">
+                <span style="color: var(--color-gray); font-size: 0.95rem;">Showing Signature Creations from Aditri Studio</span>
+                <select class="sort-select">
+                    <option>Sort by: Popularity</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                </select>
+            </div>
+
+            <div class="product-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+                <!-- 1. Modular Kitchen -->
+                <div class="product-card" data-category="kitchens" data-price="249000" data-aos="fade-up">
+                    <div class="product-badge">Featured</div>
+                    <div class="product-img-wrapper" style="height: 250px;">
+                        <img src="images/works/modular-kitchen.jpg" alt="Dual-Tone Acrylic Modular Kitchen" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-actions">
+                            <a href="product.html?id=kitchen" class="action-btn" title="View Details"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn" title="Save to Cart"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dual-Tone Acrylic Modular Kitchen</h3>
+                        <p style="font-size: 0.85rem; color: var(--color-gray); margin-bottom: 0.5rem;">Ruby Red &amp; High-Gloss White with Blum Soft-Close Organizers</p>
+                        <div class="product-rating" style="color: #F59E0B; margin-bottom: 0.4rem;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="product-price">₹2,49,000 <span style="font-size: 0.8rem; color: var(--color-gray); font-weight: 400;">(Estimated Starting)</span></p>
+                    </div>
+                </div>
+
+                <!-- 2. Wardrobes -->
+                <div class="product-card" data-category="wardrobes" data-price="129000" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-badge">Bestseller</div>
+                    <div class="product-img-wrapper" style="height: 250px;">
+                        <img src="images/works/wardrobes.jpg" alt="Floor-to-Ceiling Sliding Wardrobe" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-actions">
+                            <a href="product.html?id=wardrobe" class="action-btn" title="View Details"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn" title="Save to Cart"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Floor-to-Ceiling Sliding Wardrobe</h3>
+                        <p style="font-size: 0.85rem; color: var(--color-gray); margin-bottom: 0.5rem;">Warm Walnut with Tinted Fluted Glass &amp; Internal Sensor LEDs</p>
+                        <div class="product-rating" style="color: #F59E0B; margin-bottom: 0.4rem;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="product-price">₹1,29,000 <span style="font-size: 0.8rem; color: var(--color-gray); font-weight: 400;">(Custom Built)</span></p>
+                    </div>
+                </div>
+
+                <!-- 3. Cots & Beds -->
+                <div class="product-card" data-category="cots" data-price="68000" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-badge">New Arrival</div>
+                    <div class="product-img-wrapper" style="height: 250px;">
+                        <img src="images/works/cots-bed.jpg" alt="Hydraulic Storage Designer Cot" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-actions">
+                            <a href="product.html?id=cot" class="action-btn" title="View Details"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn" title="Save to Cart"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hydraulic Storage Designer Cot</h3>
+                        <p style="font-size: 0.85rem; color: var(--color-gray); margin-bottom: 0.5rem;">King Size Tufted Headboard with Walnut Frame &amp; Smooth Lift Mechanism</p>
+                        <div class="product-rating" style="color: #F59E0B; margin-bottom: 0.4rem;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="product-price">₹68,000</p>
+                    </div>
+                </div>
+
+                <!-- 4. TV Units -->
+                <div class="product-card" data-category="tvunits" data-price="55000" data-aos="fade-up">
+                    <div class="product-badge">Trending</div>
+                    <div class="product-img-wrapper" style="height: 250px;">
+                        <img src="images/works/tv-units.jpg" alt="Italian Marble & Fluted TV Unit" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-actions">
+                            <a href="product.html?id=tvunit" class="action-btn" title="View Details"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn" title="Save to Cart"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Italian Marble &amp; Fluted TV Unit</h3>
+                        <p style="font-size: 0.85rem; color: var(--color-gray); margin-bottom: 0.5rem;">Floating Walnut Console with Backlit Louvers &amp; Concealed Wiring</p>
+                        <div class="product-rating" style="color: #F59E0B; margin-bottom: 0.4rem;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="product-price">₹55,000</p>
+                    </div>
+                </div>
+
+                <!-- 5. Wallpapers -->
+                <div class="product-card" data-category="wallpapers" data-price="18500" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-badge">Imported</div>
+                    <div class="product-img-wrapper" style="height: 250px;">
+                        <img src="images/works/wallpapers.jpg" alt="3D Textured Metallic Wallpaper Mural" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-actions">
+                            <a href="product.html?id=wallpaper" class="action-btn" title="View Details"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn" title="Save to Cart"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>3D Textured Luxury Wall Mural</h3>
+                        <p style="font-size: 0.85rem; color: var(--color-gray); margin-bottom: 0.5rem;">Washable Vinyl with Metallic Brass Highlights (Full Wall Application)</p>
+                        <div class="product-rating" style="color: #F59E0B; margin-bottom: 0.4rem;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="product-price">₹18,500 <span style="font-size: 0.8rem; color: var(--color-gray); font-weight: 400;">(Per Wall Installed)</span></p>
+                    </div>
+                </div>
+
+                <!-- 6. Curtains -->
+                <div class="product-card" data-category="curtains" data-price="22000" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-badge">Luxury</div>
+                    <div class="product-img-wrapper" style="height: 250px;">
+                        <img src="images/works/curtains.jpg" alt="Motorized Blackout Velvet Drapes" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-actions">
+                            <a href="product.html?id=curtains" class="action-btn" title="View Details"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn" title="Save to Cart"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Motorized Blackout Velvet Drapes</h3>
+                        <p style="font-size: 0.85rem; color: var(--color-gray); margin-bottom: 0.5rem;">Custom Height Heavy Velvet with Whisper-Quiet Remote Track</p>
+                        <div class="product-rating" style="color: #F59E0B; margin-bottom: 0.4rem;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="product-price">₹22,000 <span style="font-size: 0.8rem; color: var(--color-gray); font-weight: 400;">(Pair with Track)</span></p>
+                    </div>
+                </div>
+
+                <!-- 7. Glass Stickering -->
+                <div class="product-card" data-category="glass" data-price="9500" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-badge">Architectural</div>
+                    <div class="product-img-wrapper" style="height: 250px;">
+                        <img src="images/works/glass-stickering.jpg" alt="Architectural Frosted Glass Film" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-actions">
+                            <a href="product.html?id=glass" class="action-btn" title="View Details"><i class="fas fa-eye"></i></a>
+                            <button class="action-btn" title="Save to Cart"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Architectural Frosted Glass Film</h3>
+                        <p style="font-size: 0.85rem; color: var(--color-gray); margin-bottom: 0.5rem;">Precision Laser-Cut Privacy Film for Partitions &amp; Bath Cubicles</p>
+                        <div class="product-rating" style="color: #F59E0B; margin-bottom: 0.4rem;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="product-price">₹9,500 <span style="font-size: 0.8rem; color: var(--color-gray); font-weight: 400;">(Installed)</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="background-color: #0F172A; color: #FFFFFF; padding: 5rem 5% 2rem;">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/icons/aditri-logo.svg" alt="Aditri Interior Solutions Logo" style="height: 50px; margin-bottom: 1.2rem; filter: brightness(1.2);">
+                <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.7;">
+                    Ideas beyond Imagination. Associated with <strong>V3 HOMEZONE</strong> (Better Solutions At Work).
+                </p>
+                <div class="social-links" style="margin-top: 1.5rem;">
+                    <a href="https://wa.me/919141123939" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4 style="color: #FFFFFF;">Core Solutions</h4>
+                <ul>
+                    <li><a href="shop.html?cat=kitchens">Modular Kitchens</a></li>
+                    <li><a href="shop.html?cat=wardrobes">Wardrobes &amp; Closets</a></li>
+                    <li><a href="shop.html?cat=cots">Cots &amp; Luxury Beds</a></li>
+                    <li><a href="shop.html?cat=tvunits">TV Units &amp; Paneling</a></li>
+                    <li><a href="shop.html?cat=wallpapers">Wallpapers &amp; Wall Art</a></li>
+                    <li><a href="shop.html?cat=curtains">Curtains &amp; Drapes</a></li>
+                    <li><a href="shop.html?cat=glass">Glass Stickering</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4 style="color: #FFFFFF;">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Solutions Catalog</a></li>
+                    <li><a href="about.html">About Brand</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4 style="color: #FFFFFF;">Contact Info</h4>
+                <ul style="color: #CBD5E1; font-family: var(--font-body-secondary); font-size: 0.9rem;">
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-phone-alt" style="color: var(--color-accent); margin-right: 8px;"></i> Cell: +91 91411 23939</li>
+                    <li style="margin-bottom: 1rem;"><i class="fab fa-whatsapp" style="color: #25D366; margin-right: 8px;"></i> +91 91411 23939</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-envelope" style="color: var(--color-accent); margin-right: 8px;"></i> info@v3-india.com</li>
+                    <li><i class="fas fa-globe" style="color: var(--color-accent); margin-right: 8px;"></i> www.v3-india.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom" style="border-color: rgba(255,255,255,0.1); margin-top: 3rem;">
+            <p>&copy; 2026 Aditri Interior Solutions (V3 Homezone). All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919141123939?text=Hello%20Aditri%20Interior%20Solutions" target="_blank" class="whatsapp-float-btn" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with Design Expert</span>
+    </a>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+
+</html>

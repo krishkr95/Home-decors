@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dual-Tone Acrylic Modular Kitchen by Aditri Interior Solutions - V3 Homezone. German precision fittings, Blum hardware, and high-gloss ruby red & white finishes.">
+    <title>Dual-Tone Acrylic Modular Kitchen | Aditri Interior Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <style>
+        .product-details {
+            padding: 4.5rem 5% 6rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-gallery {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1.2rem;
+        }
+
+        .thumbnails {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .thumb {
+            width: 100%;
+            aspect-ratio: 1;
+            border: 1px solid var(--color-secondary);
+            border-radius: 6px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-fast);
+        }
+
+        .thumb:hover img {
+            transform: scale(1.1);
+        }
+
+        .main-img {
+            width: 100%;
+            height: 520px;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            border: 1px solid #E5E7EB;
+            box-shadow: var(--shadow-md);
+        }
+
+        .main-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tabs {
+            margin-top: 5rem;
+            border-top: 1px solid var(--color-secondary);
+            padding-top: 2rem;
+        }
+
+        .tab-headers {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab-header {
+            font-family: var(--font-body-secondary);
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            position: relative;
+            color: var(--color-gray);
+        }
+
+        .tab-header.active {
+            color: var(--color-primary);
+        }
+
+        .tab-header.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-accent);
+        }
+
+        @media (max-width: 992px) {
+            .product-details {
+                grid-template-columns: 1fr;
+                padding-top: 8rem;
+            }
+            .product-gallery {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Unified Sticky Header -->
+    <header class="site-header" id="siteHeader">
+        <!-- Slim Luxury Utility Bar -->
+        <div class="header-top-bar">
+            <div class="top-bar-container">
+                <div class="top-bar-left">
+                    <span class="v3-badge"><i class="fas fa-shield-halved"></i> V3 HOMEZONE</span>
+                    <span class="top-bar-quote">"Ideas beyond Imagination"</span>
+                    <span class="top-bar-divider">•</span>
+                    <span class="top-bar-text">Authorized Interior Design Studio</span>
+                </div>
+                <div class="top-bar-right">
+                    <a href="tel:9141123939" class="top-contact-link"><i class="fas fa-phone-alt"></i> <span>+91 91411 23939</span></a>
+                    <a href="https://wa.me/919141123939?text=Hello%20Aditri%20Interior%20Solutions,%20I%20would%20like%20a%20free%20design%20consultation" target="_blank" class="top-contact-link top-whatsapp">
+                        <i class="fab fa-whatsapp"></i> <span>WhatsApp Us</span>
+                    </a>
+                    <a href="mailto:info@v3-india.com" class="top-contact-link"><i class="far fa-envelope"></i> <span>info@v3-india.com</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <nav class="main-nav" id="mainNav">
+            <div class="nav-container">
+                <!-- Brand Logo -->
+                <a href="index.html" class="nav-brand-link" title="Aditri Interior Solutions - V3 Homezone">
+                    <img src="images/icons/aditri-logo.svg" alt="Aditri Interior Solutions Logo" class="brand-logo-img">
+                </a>
+
+                <!-- Nav Menu Items (Desktop Menu & Mobile Drawer) -->
+                <div class="nav-links-menu" id="navLinks">
+                    <!-- Mobile Drawer Header -->
+                    <div class="drawer-header">
+                        <div class="drawer-brand">
+                            <img src="images/icons/aditri-logo.svg" alt="Aditri Interior Solutions" class="drawer-brand-logo">
+                        </div>
+                        <button class="drawer-close-btn" id="drawerClose" aria-label="Close Menu">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <a href="index.html" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-home"></i> <span>Home</span></span>
+                    </a>
+
+                    <!-- Solutions Interactive Dropdown -->
+                    <div class="nav-item-dropdown" id="solutionsDropdown">
+                        <button type="button" class="nav-link-item dropdown-toggle" aria-expanded="false" aria-label="Toggle Interior Solutions Menu">
+                            <span class="nav-link-item-left"><i class="fas fa-gem"></i> <span>Solutions</span></span>
+                            <i class="fas fa-chevron-down dropdown-caret"></i>
+                        </button>
+                        <div class="dropdown-menu-panel">
+                            <div class="dropdown-panel-header">
+                                <span class="panel-eyebrow">OUR SPECIALIZATIONS</span>
+                                <span class="panel-title">Explore Core Interior Solutions</span>
+                            </div>
+                            <div class="dropdown-items-grid">
+                                <a href="shop.html?cat=kitchens" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-utensils"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Modular Kitchens</span>
+                                        <span class="dropdown-item-desc">Acrylic, PU &amp; Island layouts</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=wardrobes" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-door-closed"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Wardrobes &amp; Storage</span>
+                                        <span class="dropdown-item-desc">Sliding, walk-in &amp; hinged</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=cots" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-bed"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Luxury Cots &amp; Beds</span>
+                                        <span class="dropdown-item-desc">Upholstered &amp; hydraulic storage</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=tvunits" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-tv"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">TV Units &amp; Paneling</span>
+                                        <span class="dropdown-item-desc">Acoustic fluted &amp; floating units</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=wallpapers" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-scroll"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Designer Wallpapers</span>
+                                        <span class="dropdown-item-desc">Textured, 3D &amp; custom murals</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=curtains" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-bars-staggered"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Custom Curtains</span>
+                                        <span class="dropdown-item-desc">Motorized, sheer &amp; blackout</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=glass" class="dropdown-item-card dropdown-item-card-wide">
+                                    <div class="dropdown-item-icon"><i class="fas fa-sun"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Glass Stickering</span>
+                                        <span class="dropdown-item-desc">Architectural frosted &amp; privacy films</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="dropdown-panel-footer">
+                                <a href="shop.html" class="panel-all-link">Browse Full Catalog <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="index.html#storefront" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-store"></i> <span>Studio</span></span>
+                    </a>
+                    <a href="shop.html" class="nav-link-item active">
+                        <span class="nav-link-item-left"><i class="fas fa-shapes"></i> <span>Catalog</span></span>
+                    </a>
+                    <a href="about.html" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-award"></i> <span>About Us</span></span>
+                    </a>
+                    <a href="contact.html" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-envelope"></i> <span>Contact</span></span>
+                    </a>
+
+                    <!-- Mobile Drawer Action Buttons -->
+                    <div class="drawer-actions-section">
+                        <a href="contact.html" class="drawer-btn-cta">
+                            <i class="fas fa-pencil-ruler"></i>
+                            <span>Free 3D Estimate</span>
+                        </a>
+                        <a href="https://wa.me/919141123939?text=Hello%20Aditri%20Interior%20Solutions,%20I%20would%20like%20a%20free%20design%20consultation" target="_blank" class="drawer-btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp Consultation</span>
+                        </a>
+                        <a href="tel:9141123939" class="drawer-btn-call">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>Call +91 91411 23939</span>
+                        </a>
+                        <div class="drawer-footer-note">
+                            Authorized V3 Homezone Studio<br>
+                            <em>"Ideas beyond Imagination"</em>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Controls -->
+                <div class="nav-actions-group">
+                    <a href="tel:9141123939" class="nav-phone-chip" title="Call Designer Direct: +91 91411 23939">
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="phone-text">91411 23939</span>
+                    </a>
+                    <a href="tel:9141123939" class="nav-mobile-call-btn" title="Call Designer">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                    <a href="cart.html" class="nav-cart-btn" title="Estimate Basket">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count-badge">0</span>
+                    </a>
+                    <a href="contact.html" class="nav-cta-btn">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <span>Free 3D Estimate</span>
+                    </a>
+                    <button class="mobile-nav-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+                        <span class="hamburger-bar"></span>
+                        <span class="hamburger-bar"></span>
+                        <span class="hamburger-bar"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Product Details -->
+    <main class="product-details">
+        <!-- Gallery -->
+        <div class="product-gallery" data-aos="fade-right">
+            <div class="thumbnails">
+                <div class="thumb"><img src="images/works/modular-kitchen.jpg" alt="Modular Kitchen Main"></div>
+                <div class="thumb"><img src="images/banners/aditri-kitchen-hero.jpg" alt="Kitchen Perspective"></div>
+                <div class="thumb"><img src="images/banners/aditri-storefront.png" alt="Showroom Display"></div>
+            </div>
+            <div class="main-img">
+                <img id="mainProductImg" src="images/works/modular-kitchen.jpg" alt="Dual-Tone Acrylic Modular Kitchen">
+            </div>
+        </div>
+
+        <!-- Info -->
+        <div class="product-info-details" data-aos="fade-left">
+            <nav style="margin-bottom: 1rem; font-size: 0.85rem; color: var(--color-gray);">
+                <a href="index.html" style="color: var(--color-gray);">Home</a> / <a href="shop.html?cat=kitchens" style="color: var(--color-gray);">Modular Kitchens</a> / Dual-Tone Acrylic
+            </nav>
+
+            <span style="background: rgba(185, 28, 28, 0.1); color: var(--color-accent); padding: 4px 12px; border-radius: 4px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">
+                STOREFRONT FEATURED MODEL
+            </span>
+
+            <h1 style="font-size: 2.2rem; margin-top: 0.8rem; margin-bottom: 0.8rem;">Dual-Tone Acrylic Modular Kitchen</h1>
+            
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                <div style="color: #F59E0B;">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span style="color: var(--color-gray); font-size: 0.85rem;">(48 Verified Homeowners)</span>
+            </div>
+
+            <p class="detail-price" style="font-size: 1.8rem; font-weight: 700; color: var(--color-primary); margin-bottom: 1.5rem;">
+                ₹2,49,000 <span style="font-size: 0.9rem; font-weight: 400; color: var(--color-gray);">Starting Estimate (Customized by sq.ft)</span>
+            </p>
+
+            <p style="color: var(--color-gray-dark); margin-bottom: 2rem; font-size: 1.05rem; line-height: 1.8;">
+                As highlighted on our signature studio billboard, this L-shaped &amp; island modular kitchen combines deep Ruby Red high-gloss acrylic with crisp Arctic White cabinets. Built with 100% Boiling Waterproof (BWP) Marine Ply and German Blum soft-close mechanisms.
+            </p>
+
+            <!-- Key Features List -->
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;">
+                <h4 style="font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.8rem; letter-spacing: 1px;">Included Highlights:</h4>
+                <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; font-size: 0.88rem; color: #334155;">
+                    <li><i class="fas fa-check" style="color: #059669; margin-right: 6px;"></i> 18mm BWP Marine Plywood</li>
+                    <li><i class="fas fa-check" style="color: #059669; margin-right: 6px;"></i> Anti-Scratch Acrylic Finish</li>
+                    <li><i class="fas fa-check" style="color: #059669; margin-right: 6px;"></i> Blum Soft-Close Drawers</li>
+                    <li><i class="fas fa-check" style="color: #059669; margin-right: 6px;"></i> Quartz Countertop Profile</li>
+                    <li><i class="fas fa-check" style="color: #059669; margin-right: 6px;"></i> 10-Year Water Warranty</li>
+                    <li><i class="fas fa-check" style="color: #059669; margin-right: 6px;"></i> Free 3D Blueprint &amp; Measure</li>
+                </ul>
+            </div>
+
+            <!-- CTAs -->
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary" style="background-color: var(--color-accent); flex: 1; text-align: center; border: none;">
+                    <i class="fas fa-calendar-check" style="margin-right: 6px;"></i> Book Free 3D Measurement
+                </a>
+                <a href="https://wa.me/919141123939?text=Hello%20Aditri%20Interior%20Solutions,%20I%20am%20interested%20in%20the%20Dual-Tone%20Modular%20Kitchen" target="_blank" class="btn btn-outline" style="background: #25D366; color: white; border-color: #25D366;">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="background-color: #0F172A; color: #FFFFFF; padding: 5rem 5% 2rem;">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/icons/aditri-logo.svg" alt="Aditri Interior Solutions Logo" style="height: 50px; margin-bottom: 1.2rem; filter: brightness(1.2);">
+                <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.7;">
+                    Ideas beyond Imagination. Associated with <strong>V3 HOMEZONE</strong> (Better Solutions At Work).
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h4 style="color: #FFFFFF;">Core Solutions</h4>
+                <ul>
+                    <li><a href="shop.html?cat=kitchens">Modular Kitchens</a></li>
+                    <li><a href="shop.html?cat=wardrobes">Wardrobes &amp; Closets</a></li>
+                    <li><a href="shop.html?cat=cots">Cots &amp; Luxury Beds</a></li>
+                    <li><a href="shop.html?cat=tvunits">TV Units &amp; Paneling</a></li>
+                    <li><a href="shop.html?cat=wallpapers">Wallpapers &amp; Wall Art</a></li>
+                    <li><a href="shop.html?cat=curtains">Curtains &amp; Drapes</a></li>
+                    <li><a href="shop.html?cat=glass">Glass Stickering</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4 style="color: #FFFFFF;">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Solutions Catalog</a></li>
+                    <li><a href="about.html">About Brand</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4 style="color: #FFFFFF;">Contact Info</h4>
+                <ul style="color: #CBD5E1; font-family: var(--font-body-secondary); font-size: 0.9rem;">
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-phone-alt" style="color: var(--color-accent); margin-right: 8px;"></i> Cell: +91 91411 23939</li>
+                    <li style="margin-bottom: 1rem;"><i class="fab fa-whatsapp" style="color: #25D366; margin-right: 8px;"></i> +91 91411 23939</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-envelope" style="color: var(--color-accent); margin-right: 8px;"></i> info@v3-india.com</li>
+                    <li><i class="fas fa-globe" style="color: var(--color-accent); margin-right: 8px;"></i> www.v3-india.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom" style="border-color: rgba(255,255,255,0.1); margin-top: 3rem;">
+            <p>&copy; 2026 Aditri Interior Solutions (V3 Homezone). All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919141123939?text=Hello%20Aditri%20Interior%20Solutions" target="_blank" class="whatsapp-float-btn" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with Design Expert</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        // Gallery thumb switch
+        document.querySelectorAll('.thumb img').forEach(img => {
+            img.addEventListener('click', () => {
+                document.getElementById('mainProductImg').src = img.src;
+            });
+        });
+    </script>
+</body>
+</html>

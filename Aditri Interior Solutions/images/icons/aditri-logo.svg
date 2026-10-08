@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 68" width="440" height="68">
+  <defs>
+    <linearGradient id="v3BadgeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="rubyTitle" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B91C1C"/>
+      <stop offset="100%" stop-color="#881337"/>
+    </linearGradient>
+    <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Left: V3 HOMEZONE Emblem -->
+  <g transform="translate(4, 6)" filter="url(#badgeShadow)">
+    <rect x="0" y="0" width="56" height="56" rx="10" fill="url(#v3BadgeBg)"/>
+    <rect x="2" y="2" width="52" height="52" rx="8" fill="none" stroke="#F59E0B" stroke-width="1.5" opacity="0.9"/>
+    <!-- V3 Bold Emblem -->
+    <text x="28" y="32" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="24" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5">V3</text>
+    <!-- HOMEZONE sub-pill -->
+    <rect x="7" y="37" width="42" height="13" rx="3" fill="#D97706"/>
+    <text x="28" y="47" font-family="'Montserrat', sans-serif" font-weight="800" font-size="7.2" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.9">HOMEZONE</text>
+  </g>
+
+  <!-- Elegant Vertical Divider -->
+  <line x1="72" y1="12" x2="72" y2="56" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Right: Brand Typography -->
+  <g transform="translate(84, 0)">
+    <!-- Primary Brand Title -->
+    <text x="0" y="33" font-family="'Playfair Display', Georgia, serif" font-weight="800" font-size="28" fill="url(#rubyTitle)" letter-spacing="-0.3">
+      Aditri <tspan font-family="'Montserrat', sans-serif" font-weight="700" font-size="22" fill="#0F172A" letter-spacing="-0.2">Interior</tspan> <tspan font-family="'Montserrat', sans-serif" font-weight="500" font-size="21" fill="#475569">Solutions</tspan>
+    </text>
+
+    <!-- Subtitle: Offerings & Tagline -->
+    <text x="1" y="51" font-family="'Montserrat', sans-serif" font-weight="700" font-size="9.5" fill="#334155" letter-spacing="1.2">
+      MODULAR KITCHENS &amp; WARDROBES
+    </text>
+    <text x="222" y="51" font-family="'Playfair Display', Georgia, serif" font-style="italic" font-weight="600" font-size="11" fill="#B45309" letter-spacing="0.3">
+      • Ideas beyond Imagination
+    </text>
+  </g>
+</svg>

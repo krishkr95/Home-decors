@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal | Aditri Interior Solutions</title>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <style>
+        .auth-container {
+            min-height: calc(100vh - 120px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4.5rem 5% 6rem;
+            background: linear-gradient(rgba(248, 245, 240, 0.9), rgba(248, 245, 240, 0.9)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover;
+        }
+
+        .auth-card {
+            background-color: var(--color-white);
+            width: 100%;
+            max-width: 500px;
+            padding: 3.5rem;
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+
+        .auth-card h2 {
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading-secondary);
+        }
+
+        .auth-card p {
+            margin-bottom: 2.5rem;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--color-light-gray);
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 1rem;
+            cursor: pointer;
+            font-family: var(--font-body-secondary);
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: var(--color-gray);
+            transition: var(--transition-fast);
+        }
+
+        .auth-tab.active {
+            color: var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid var(--color-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .social-btn:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: translateY(-3px);
+        }
+
+        .password-toggle {
+            position: relative;
+        }
+
+        .password-toggle i {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--color-gray);
+        }
+
+        @media (max-width: 576px) {
+            .auth-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Unified Sticky Header -->
+    <header class="site-header" id="siteHeader">
+        <!-- Slim Luxury Utility Bar -->
+        <div class="header-top-bar">
+            <div class="top-bar-container">
+                <div class="top-bar-left">
+                    <span class="v3-badge"><i class="fas fa-shield-halved"></i> V3 HOMEZONE</span>
+                    <span class="top-bar-quote">"Ideas beyond Imagination"</span>
+                    <span class="top-bar-divider">•</span>
+                    <span class="top-bar-text">Authorized Interior Design Studio</span>
+                </div>
+                <div class="top-bar-right">
+                    <a href="tel:9141123939" class="top-contact-link"><i class="fas fa-phone-alt"></i> <span>+91 91411 23939</span></a>
+                    <a href="https://wa.me/919141123939?text=Hello%20Aditri%20Interior%20Solutions,%20I%20would%20like%20a%20free%20design%20consultation" target="_blank" class="top-contact-link top-whatsapp">
+                        <i class="fab fa-whatsapp"></i> <span>WhatsApp Us</span>
+                    </a>
+                    <a href="mailto:info@v3-india.com" class="top-contact-link"><i class="far fa-envelope"></i> <span>info@v3-india.com</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <nav class="main-nav" id="mainNav">
+            <div class="nav-container">
+                <!-- Brand Logo -->
+                <a href="index.html" class="nav-brand-link" title="Aditri Interior Solutions - V3 Homezone">
+                    <img src="images/icons/aditri-logo.svg" alt="Aditri Interior Solutions Logo" class="brand-logo-img">
+                </a>
+
+                <!-- Nav Menu Items (Desktop Menu & Mobile Drawer) -->
+                <div class="nav-links-menu" id="navLinks">
+                    <!-- Mobile Drawer Header -->
+                    <div class="drawer-header">
+                        <div class="drawer-brand">
+                            <img src="images/icons/aditri-logo.svg" alt="Aditri Interior Solutions" class="drawer-brand-logo">
+                        </div>
+                        <button class="drawer-close-btn" id="drawerClose" aria-label="Close Menu">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <a href="index.html" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-home"></i> <span>Home</span></span>
+                    </a>
+
+                    <!-- Solutions Interactive Dropdown -->
+                    <div class="nav-item-dropdown" id="solutionsDropdown">
+                        <button type="button" class="nav-link-item dropdown-toggle" aria-expanded="false" aria-label="Toggle Interior Solutions Menu">
+                            <span class="nav-link-item-left"><i class="fas fa-gem"></i> <span>Solutions</span></span>
+                            <i class="fas fa-chevron-down dropdown-caret"></i>
+                        </button>
+                        <div class="dropdown-menu-panel">
+                            <div class="dropdown-panel-header">
+                                <span class="panel-eyebrow">OUR SPECIALIZATIONS</span>
+                                <span class="panel-title">Explore Core Interior Solutions</span>
+                            </div>
+                            <div class="dropdown-items-grid">
+                                <a href="shop.html?cat=kitchens" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-utensils"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Modular Kitchens</span>
+                                        <span class="dropdown-item-desc">Acrylic, PU &amp; Island layouts</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=wardrobes" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-door-closed"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Wardrobes &amp; Storage</span>
+                                        <span class="dropdown-item-desc">Sliding, walk-in &amp; hinged</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=cots" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-bed"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Luxury Cots &amp; Beds</span>
+                                        <span class="dropdown-item-desc">Upholstered &amp; hydraulic storage</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=tvunits" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-tv"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">TV Units &amp; Paneling</span>
+                                        <span class="dropdown-item-desc">Acoustic fluted &amp; floating units</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=wallpapers" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-scroll"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Designer Wallpapers</span>
+                                        <span class="dropdown-item-desc">Textured, 3D &amp; custom murals</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=curtains" class="dropdown-item-card">
+                                    <div class="dropdown-item-icon"><i class="fas fa-bars-staggered"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Custom Curtains</span>
+                                        <span class="dropdown-item-desc">Motorized, sheer &amp; blackout</span>
+                                    </div>
+                                </a>
+                                <a href="shop.html?cat=glass" class="dropdown-item-card dropdown-item-card-wide">
+                                    <div class="dropdown-item-icon"><i class="fas fa-sun"></i></div>
+                                    <div class="dropdown-item-info">
+                                        <span class="dropdown-item-title">Glass Stickering</span>
+                                        <span class="dropdown-item-desc">Architectural frosted &amp; privacy films</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="dropdown-panel-footer">
+                                <a href="shop.html" class="panel-all-link">Browse Full Catalog <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="index.html#storefront" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-store"></i> <span>Studio</span></span>
+                    </a>
+                    <a href="shop.html" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-shapes"></i> <span>Catalog</span></span>
+                    </a>
+                    <a href="about.html" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-award"></i> <span>About Us</span></span>
+                    </a>
+                    <a href="contact.html" class="nav-link-item">
+                        <span class="nav-link-item-left"><i class="fas fa-envelope"></i> <span>Contact</span></span>
+                    </a>
+
+                    <!-- Mobile Drawer Action Buttons -->
+                    <div class="drawer-actions-section">
+                        <a href="contact.html" class="drawer-btn-cta">
+                            <i class="fas fa-pencil-ruler"></i>
+                            <span>Free 3D Estimate</span>
+                        </a>
+                        <a href="https://wa.me/919141123939?text=Hello%20Aditri%20Interior%20Solutions,%20I%20would%20like%20a%20free%20design%20consultation" target="_blank" class="drawer-btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp Consultation</span>
+                        </a>
+                        <a href="tel:9141123939" class="drawer-btn-call">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>Call +91 91411 23939</span>
+                        </a>
+                        <div class="drawer-footer-note">
+                            Authorized V3 Homezone Studio<br>
+                            <em>"Ideas beyond Imagination"</em>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Controls -->
+                <div class="nav-actions-group">
+                    <a href="tel:9141123939" class="nav-phone-chip" title="Call Designer Direct: +91 91411 23939">
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="phone-text">91411 23939</span>
+                    </a>
+                    <a href="tel:9141123939" class="nav-mobile-call-btn" title="Call Designer">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                    <a href="cart.html" class="nav-cart-btn" title="Estimate Basket">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count-badge">0</span>
+                    </a>
+                    <a href="contact.html" class="nav-cta-btn">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <span>Free 3D Estimate</span>
+                    </a>
+                    <button class="mobile-nav-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+                        <span class="hamburger-bar"></span>
+                        <span class="hamburger-bar"></span>
+                        <span class="hamburger-bar"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Auth Container -->
+    <main class="auth-container">
+        <div class="auth-card" data-aos="zoom-in">
+            <div class="auth-tabs">
+                <div class="auth-tab active">Login</div>
+                <div class="auth-tab">Register</div>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+                <div class="form-group" style="text-align: left;">
+                    <label>Username or Email</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group" style="text-align: left;">
+                    <label>Password</label>
+                    <div class="password-toggle">
+                        <input type="password" class="form-control" required>
+                        <i class="far fa-eye"></i>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; font-size: 0.85rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--color-gray);">
+                        <input type="checkbox"> Remember Me
+                    </label>
+                    <a href="#" style="color: var(--color-accent);">Lost your password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+            </form>
+
+            <div style="margin-top: 2.5rem; position: relative;">
+                <span style="background-color: var(--color-white); padding: 0 1rem; position: relative; z-index: 1; color: var(--color-gray); font-size: 0.85rem;">Or Login With</span>
+                <div style="position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background-color: var(--color-light-gray); z-index: 0;"></div>
+            </div>
+
+            <div class="social-login">
+                <div class="social-btn"><i class="fab fa-google"></i></div>
+                <div class="social-btn"><i class="fab fa-facebook-f"></i></div>
+                <div class="social-btn"><i class="fab fa-apple"></i></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="background-color: #0F172A; color: #FFFFFF; padding: 5rem 5% 2rem;">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/icons/aditri-logo.svg" alt="Aditri Interior Solutions Logo" style="height: 50px; margin-bottom: 1.2rem; filter: brightness(1.2);">
+                <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.7;">
+                    Ideas beyond Imagination. Associated with <strong>V3 HOMEZONE</strong> (Better Solutions At Work). Delivering turnkey interior solutions.
+                </p>
+                <div class="social-links" style="margin-top: 1.5rem;">
+                    <a href="https://wa.me/919141123939" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4 style="color: #FFFFFF;">Core Solutions</h4>
+                <ul>
+                    <li><a href="shop.html?cat=kitchens">Modular Kitchens</a></li>
+                    <li><a href="shop.html?cat=wardrobes">Wardrobes &amp; Closets</a></li>
+                    <li><a href="shop.html?cat=cots">Cots &amp; Luxury Beds</a></li>
+                    <li><a href="shop.html?cat=tvunits">TV Units &amp; Paneling</a></li>
+                    <li><a href="shop.html?cat=wallpapers">Wallpapers &amp; Wall Art</a></li>
+                    <li><a href="shop.html?cat=curtains">Curtains &amp; Drapes</a></li>
+                    <li><a href="shop.html?cat=glass">Glass Stickering</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4 style="color: #FFFFFF;">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Solutions Catalog</a></li>
+                    <li><a href="about.html">About Brand</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4 style="color: #FFFFFF;">Contact Info</h4>
+                <ul style="color: #CBD5E1; font-family: var(--font-body-secondary); font-size: 0.9rem;">
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-phone-alt" style="color: var(--color-accent); margin-right: 8px;"></i> Cell: +91 91411 23939</li>
+                    <li style="margin-bottom: 1rem;"><i class="fab fa-whatsapp" style="color: #25D366; margin-right: 8px;"></i> +91 91411 23939</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-envelope" style="color: var(--color-accent); margin-right: 8px;"></i> info@v3-india.com</li>
+                    <li><i class="fas fa-globe" style="color: var(--color-accent); margin-right: 8px;"></i> www.v3-india.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom" style="border-color: rgba(255,255,255,0.1); margin-top: 3rem;">
+            <p>&copy; 2026 Aditri Interior Solutions (V3 Homezone). All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
