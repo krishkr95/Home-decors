@@ -1,0 +1,81 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="uvsOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EA5A0A" />
+      <stop offset="100%" stop-color="#F39200" />
+    </linearGradient>
+    <linearGradient id="uvsSlateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2B333C" />
+      <stop offset="100%" stop-color="#4E5E6B" />
+    </linearGradient>
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Hexagonal House Emblem -->
+  <g transform="translate(15, 10)">
+    <!-- Chimney -->
+    <path d="M78 20 L94 20 L94 48 L78 38 Z" fill="#EA5A0A" />
+
+    <!-- Outer Hexagonal / House Frame -->
+    <path d="M55 12 L105 42 L105 102 L55 132 L6 102 L6 42 Z" 
+          fill="none" 
+          stroke="#2B333C" 
+          stroke-width="10" 
+          stroke-linejoin="round" 
+          stroke-linecap="round" />
+
+    <!-- 4 Small Window Panes -->
+    <g fill="#F39200" transform="translate(42, 42)">
+      <rect x="0" y="0" width="10" height="10" rx="1.5" />
+      <rect x="14" y="0" width="10" height="10" rx="1.5" />
+      <rect x="0" y="14" width="10" height="10" rx="1.5" />
+      <rect x="14" y="14" width="10" height="10" rx="1.5" />
+    </g>
+
+    <!-- Interior Faceted Geometric Structure (House/Ribbon) -->
+    <!-- Left ribbon leg -->
+    <path d="M28 92 L28 66 L50 82 L50 114 Z" fill="url(#uvsSlateGrad)" opacity="0.95" />
+    <!-- Center/Right geometric folds -->
+    <path d="M52 115 L52 83 L76 66 L86 74 L62 92 L86 108 L68 123 Z" fill="url(#uvsOrangeGrad)" />
+  </g>
+
+  <!-- Typography -->
+  <!-- "UV" in Dark Slate Gray -->
+  <text x="145" y="88" 
+        font-family="'Montserrat', 'Arial Black', sans-serif" 
+        font-size="76" 
+        font-weight="900" 
+        letter-spacing="-2" 
+        fill="#2B333C">UV</text>
+
+  <!-- "S" in Safety Orange -->
+  <text x="268" y="88" 
+        font-family="'Montserrat', 'Arial Black', sans-serif" 
+        font-size="76" 
+        font-weight="900" 
+        letter-spacing="-2" 
+        fill="#EA5A0A">S</text>
+
+  <!-- Subtle divider rule with gradient -->
+  <line x1="145" y1="102" x2="495" y2="102" stroke="#E2E8F0" stroke-width="1.5" />
+  <line x1="145" y1="102" x2="280" y2="102" stroke="#EA5A0A" stroke-width="2.5" />
+
+  <!-- "INTERIOR SOLUTIONS" Subtitle -->
+  <text x="146" y="122" 
+        font-family="'Montserrat', sans-serif" 
+        font-size="16.5" 
+        font-weight="800" 
+        letter-spacing="5" 
+        fill="#2B333C">INTERIOR SOLUTIONS</text>
+
+  <!-- Tagline Script Style -->
+  <text x="146" y="146" 
+        font-family="'Montserrat', sans-serif" 
+        font-style="italic" 
+        font-size="12" 
+        font-weight="600" 
+        letter-spacing="0.5" 
+        fill="#EA5A0A">Transforming Spaces, Enhancing Lives</text>
+</svg>
